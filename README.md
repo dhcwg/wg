@@ -1,9 +1,10 @@
 wg
 ==
 
-items related to DHC working group in IETF
+This is an unofficial repository for items related to DHC working group in IETF
 
 Note Well
+=========
 
 Any submission to the IETF intended by the Contributor for publication
 as all or part of an IETF Internet-Draft or RFC and any statement made
