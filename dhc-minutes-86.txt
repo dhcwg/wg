@@ -1,0 +1,147 @@
+Dynamic Host Configuration Working Group
+         IETF 86 Meeting Minutes
+
+minutes written after meeting based on audio logs
+and notes. Please excuse any inaccuracies
+
+Agenda bashing: Ole Troan requested moving his presentation up to other
+presentations about DHCPv4-over-IPv6 and chairs did that.
+
+Chairs update:
+Ted Lemon stepped down as DHC chair and taking over as Internet Area Director
+John Brzozowski steppedn down as DHC chair and taking over as v6ops WG co-chair
+
+New co-chairs:
+Bernie Volz
+Tomek Mrugalski
+
+Ralph Droms (stepping down Internet AD) thanked both old chairs for a long,
+effective service and welcomed new chairs.
+
+New RFCs published:
+- RFC6853 "DHCPv6 Redundancy Considerations"
+- RFC6842 "Client Identifier Option in DHCP Server Replies"
+
+Drafts in IESG:
+- draft-ietf-dhc-dhcpv4-bulk-leasequery (waiting for ref)
+- draft-ietf-dhc-relay-id-suboption (approved)
+- draft-ietf-dhc-secure-dhcpv6 (4 discusses, IPR disclosed)
+- draft-ietf-dhc-dhcpv6-client-link-layer-addr-opt (approved)
+
+WG drafts:
+- draft-ietf-dhc-failover-requirements-02 (passed wglc)
+- draft-ietf-dhc-dhcpv6-radius-opt-09 (passed wglc)
+- draft-ietf-dhc-triggered-reconfigure-03 (passed wglc)
+- draft-ietf-dhc-dhcpv6-load-balancing-00 (passed wglc)
+- draft-lemon-dhc-dns-pd-01 (adopted, will republish as wg item)
+- draft-ietf-dhc-dhcpv6-tunnel-01 (expired, on agenda)
+- draft-ietf-dhc-dhcpv6-failover-design-02 (reviews needed)
+- draft-ietf-dhc-option-guidelines-10 (minor update, then wglc)
+- draft-ietf-dhc-addr-registration-02 (on agenda)
+- draft-ietf-dhc-container-opt-06
+
+- draft-ietf-dhc-dhcpv4-over-ipv6-05 (on agenda)
+
+- draft-ietf-dhc-dhcpv6-solmaxrt-update-00 (needs update, then wglc?)
+- draft-ietf-dhc-dhcpv6-stateful-issues-03 (wglc comments, update needed)
+- draft-ietf-dhc-dhcpv6-prefix-pool-opt-02 (wglc requested, chairs will announce)
+- draft-ietf-dhc-host-gen-id-05 & draft-ietf-dhc-cga-config-dhcpv6-04
+  authors asked if there is still interest in this work? No comments from WG,
+  will take to the list, but likely drop
+
+Potential WG items:
+- draft-bhandari-dhc-class-based-prefix-04 (author would like WG to adopt,
+  on agenda)
+
+- draft-rajtar-dhc-v4configuration-01 (updated, based on WG comments, on agenda)
+- draft-mrugalski-softwire-dhcpv4-over-v6-option-01 (companion document for
+  draft-ietf-dhc-dhcpv4-over-ipv6-05, adopt or drop depending on discussion)
+
+There is a planned joint DHC/sunset4 session planned in Berlin to discuss
+issues that overlap Sunset4 and DHC. (Sunset4 and DHC will have separate
+sessions as well)
+
+IPR Disclosure
+by Ted Lemon
+
+Ted: Important procedural thing to be aware of. Announcing that there was a late
+IPR disclosure.  In 2008 first secure-dhcpv6 draft was published. In 2010 there
+was a patent filed. The IPR was disclosed in 2013 after WGLC. That is not ok
+according to BCP79. IETF participants are required to required to disclose IPR
+as soon as they are aware of any IP claims. The section chosen is a formal
+notification sent to the list.
+
+DHCP Directorate
+by Ted Lemon
+
+Ted: The issue is that DHC is an attractive place for people defining options
+that have really nothing to do with DHCP. This often forces the WG to take up
+the work that is not really DHCP. The proposal is to take it off the charter.
+The DHC will no longer produce DHCP options. The work would be done in the
+respective WGs. For example DHCP option for PCP is done in PCP WG. DHC is going
+to do only protocol extensions. We're going to form DHCP Directorate - a
+collection of experts that will help AD, mostly by doing review for DHCP related
+work in other WGs. Architectural questions remain in DHC (option guidelines,
+leasequery, failover, DHCPv4-over-IPv6 etc.). Chairs will propose DHCP
+Directorate charter. Ted will be responsible for nominating members of DHCP
+Directorate.
+
+Bernie Volz: Maybe call it DHCP Options Directorate?
+Ted: No, it may be for other things, not just options.
+Kim Kinnear: Directorate not a bad idea in general, but there will be an overlap
+between WG and directorate.
+Ted: One of the major reasons for having WG is to form a consensus. Directorate
+is more about technical review than consensus.
+Kim: Would you expect more than one person to do review?
+Ted: There may be couple people requested to do review.
+Kim: My concern is that if we decide to solve a problem and the problem is not
+protocol specific, what do we do?
+Ted: Give me an example?
+Kim: I don't have one right now. New suboption for option 82 for example.
+Ted: If there is no WG that is appropriate and there's a genuine need for it,
+we have liason statement from cablelabs or something like that.
+Kim: What if we 12 people decide in this room that we need an option?
+Ted: Good question. If there's 12 people interested, there are 2 options. The
+first one is to create new charter, the second is to form a new WG. Another
+way is to go to your AD and do individual submission and go straight to IESG.
+Kim: In that case I object. I think this is a bad idea.
+Bernie: We'll take it to the list.
+Sheng Jiang: There is another scenario in IETF - do gap analysis or requirements
+document. What if DHC gets a requirements document from some other WG. Would it
+be ok to do this work in DHC?
+Ted: No. This is an attractive nuisance. The whole point is to remove that
+attractive nuisance.
+Sheng: In the ops group expresses a need for an option to handle some
+operational scenario, where should the work go?
+Ted: That's a good point. I don't have an answer for that right now. I probably
+need to discuss this with Ralph Droms. If it were completely up to me, I'd say
+wait for a case like that and then decide, but I hear you. This is a legitimate
+concern. Let me think about that.
+
+Obtaining IPv4 Parameters in IPv6 Networks
+by Ted Lemon
+http://tools.ietf.org/html/draft-rajtar-dhc-v4configuration-01
+http://tools.ietf.org/html/draft-ietf-dhc-dhcpv4-over-ipv6-05
+http://tools.ietf.org/html/draft-sun-dhc-dhcpv6-opt-v4config-00
+
+Bernie: We'd like to take up only couple clarifying questions, Ian will present
+next on similar topic and Ole will do his. After that we'll have a broader
+discussion later.
+
+Suresh Krishnan: It is difficult to foresee how many options will be needed in
+the next 10 or 20 years.
+
+Rajiv: I just wanted to clarify that MAP-E was presented. It is not just the
+part of PD used to derive IPv4 address, but also IPv4 prefix is provisioned.
+
+draft-rajtar-dhc-v4configuration
+Ian Farrer
+http://tools.ietf.org/html/draft-rajtar-dhc-v4configuration-01
+http://tools.ietf.org/agenda/86/slides/slides-86-dhc-4.pptx
+
+Ian presented 3 different approaches discussed in the draft: DHCPv4-over-IPv6,
+DHCPv6 and hybrid approach (DHCPv6 to get IPv4 address and then request any
+other IPv4 options using DHCPINFORM over softwire tunnel).
+
+[resume at audio log 42 minutes, ietf86-caribbean1-20130314-1520-pm2.mp3 from
+http://www.ietf.org/audio/ietf86/]
