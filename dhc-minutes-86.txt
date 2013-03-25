@@ -135,13 +135,115 @@ Rajiv: I just wanted to clarify that MAP-E was presented. It is not just the
 part of PD used to derive IPv4 address, but also IPv4 prefix is provisioned.
 
 draft-rajtar-dhc-v4configuration
-Ian Farrer
+presented by Ian Farrer
 http://tools.ietf.org/html/draft-rajtar-dhc-v4configuration-01
 http://tools.ietf.org/agenda/86/slides/slides-86-dhc-4.pptx
 
 Ian presented 3 different approaches discussed in the draft: DHCPv4-over-IPv6,
 DHCPv6 and hybrid approach (DHCPv6 to get IPv4 address and then request any
 other IPv4 options using DHCPINFORM over softwire tunnel).
+
+DHCPv6 through Tunels
+presented by Ole Troan
+draft-ietf-dhc-dhcpv6-tunnel
+
+This is opposite of the previously discussed options. DHCPv6 client working over
+IPv4 networks. The problem is to run DHCPv6 client on interface that does not have
+link-local interface and doesn't support multicast. Possible solutions are: a)
+integrate relay with client b) allow client-server communication using global
+address (with solving the problem of how the client can learn server address).
+
+Ted: We had discussion on mailing list: do we colocate relay with client or "break
+the protocol" and allow unicast? 
+Tomek: Is it solicit or information-request only?
+Ted: good point. inf-request only. The point in not allowing clients unicast packets
+to server to break down every client that attempts to do it.
+Bernie: Agree.
+Ted: I'm tempted to suggest: have the client just send relay-forw message.
+Ralph Droms: Didn't we go though this before for some other technology?
+(unaudible): NEMO!
+Francis Dupont: There's RFC6276, which exactly solves the same problem for mobile
+router. The solution was to colocate relay with the client.
+Ole: So we can kill this document.
+Bernie: That's brillant. Thanks, Ralph!
+(laughs)
+
+Discussion regarding DHCPv4 over IPv6 networks
+Ted: My expectation and hope about this is that we find a nuanced solution, not a sledgehammer.
+Kim Kinnear: Are we trying to pick one of the solution or some variant of thereof?
+Ted: We are not trying to pick one of 3 choices. I think the solution to the problem is 
+to do just information request. BTW the ideal environment for this is that you don't have
+any IPv4 services left. If your provide has IPv6 only network, you are not supposed to need
+any information about IPv4 services. We're configuring CPE here. CPE can provide DNS over
+IPv4 to end hosts, but talk IPv6 upstream.
+Ian: We did a lot of work in Softwires to find provisioning methods and the way it is constructed
+now is to use a single container. If we chose to break that down, it will put us back a long way.
+Ted: We talked about only stateless here. When talking about unified cpe case is one of:
+a) you get just this and this will be enough or b) you're doing stateful, so you need stateful
+IPv4 allocation. There's no one solution that meets all needs. First is the timing. Hopefully,
+as we further into the future, the need for IPv4 addresses will decline. CPE devices have to 
+use PD. That part is not optional. What you don't get is a dynamically allocated address.
+And if you need to configure additional IPv4 parameters, that comes for free here with DHCPv4 server.
+Ian: In the latest experiments we found that having dynamic allocation is a nice thing to have.
+Rajiv: It may be a DNS proxy. Perhaps we could have a flag that says if we want to do dynamic allocation?
+Kim: There's the draft that Ian proposed with 3 cases. Do you want to pick one of those 3 cases?
+Ted: No. Ian is just innocent bystander. He wrote the draft as a favor for me. This is not
+just about unified CPE. This is something that is happening in Softwires, so it motivates
+us, but it is not the only reason. 
+Kim: One of the options discussed was porting v4 options to v6, one by one. This is clearly a
+non-starter.
+Ted: So it's either approach 1 or 3. The third option is a tunnel. I think tunnel is a wrong
+thing to do. Tunnel do not support all the things that are needed. And unnumbered tunnels
+are not really tunnels.
+Kim: so it's mostly the first solution.
+Ted: We had couple discussions. First is to when you have initial DHCPv6 configuration, you may
+also get an IPv6 address of the DHCPv4 server, and then you do something DHCPv4-like to 
+DHCPv4 server over IPv6. The other thing that you could do, which actually has some attractive
+positive quality, is that you can define a new DHCPv4 relay message option in DHCPv6 and
+the client multicasts DHCPv6 message with DHCPv4 message in it to all v6 servers and v6 relays.
+It will also likely reach the same server as regular DHCPv6 packets would do.
+Kim: I haven't been following all the drafts in that area recently. Is there a draft that
+explains that?
+Ted: No. We came up with the draft recenly brainstorming. Does anybody think this is a bad idea?
+Ole: can you state is again, please?
+Ted: What we are proposing here is we have either relay-forw message (maybe relay-forw4 message)
+that has relay-msg4 option inside it, following the same structure as relayed DHCPv6. The big
+picture is that you essentially have one infrastructure that's delivering both DHCPv4 and DHCPv6
+messages that arrive at the same destination point. At the end you decide to have either one
+server or two.
+Rajiv: The downside is that you have modify a relay.
+Ted: Only the PE relay.
+Bernie: and you need to change the server. There's a question about if we want to use existing
+message type of something new.
+Ted: Speaking of which, do we have a volunteer to write a draft?
+[Tomek volnteering].
+Ted: You're the chair...
+Tomek: Am I still allowed to write drafts?
+(laughs)
+Rajiv: Are we still requiring server modification?
+Ted: yes, but it is very localized.
+Bernie: Let's take this to the list. We should write something short that explains the basic
+concepts. Is there anyone that would like to write a draft?
+Ian: we have different solutions draft? Would it make sense to have short description there?
+Ted: No. It needs to be completed and document what we have agreed here. It will refer to the
+solution.
+Ian: That's a work item that is blocking several other Softwire works. We don't need it published
+as RFC, we just need a decision.
+Ole: I think is a grand idea for now, but I reserve my right to change my mind tomorrow. Would
+it be easier to deploy if you colocate DHCPv4 and DHCPv6 servers?
+Ted: Like Cisco and Nominum do?
+Suresh Krishnan: The other solutions have something written down. We're talking about very fuzzy
+things. I volunteer to work on this.
+Marcin Siodelski: I think it is a good idea to document that, so I volunteer to do the job.
+Ted: Allright! Does anyone want to work with him?
+Bernie: I'll work with him, also Tomek will help.
+
+Suresh
+
+
+
+
+
 
 [resume at audio log 42 minutes, ietf86-caribbean1-20130314-1520-pm2.mp3 from
 http://www.ietf.org/audio/ietf86/]
