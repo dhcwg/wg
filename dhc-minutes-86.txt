@@ -238,8 +238,18 @@ Marcin Siodelski: I think it is a good idea to document that, so I volunteer to 
 Ted: Allright! Does anyone want to work with him?
 Bernie: I'll work with him, also Tomek will help.
 
-Suresh
 
+A Generic IPv6 Addresses Registration Solution Using DHCPv6
+Suresh Krishnan
+
+This draft was around for a while. It was presented before. Chairs told us to go to v6ops
+and we got beaten up a bit. There used to be 2 senarios supported for registering a host:
+by a router and by the host itself. The host registration is now deemphasized. The host
+registration is considered a DOS vector.
+Dave Thaler: In enterprise environment SLAAC is mandatory and DHCPv6 is optional. This makes
+a problem when hosts have A record, but not AAAA record. I'd like to work with you offline
+to see if the host scenario issues can be solved and if they also apply to router host.
+I think it is very important to solve this.
 
 
 
