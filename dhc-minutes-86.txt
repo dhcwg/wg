@@ -250,6 +250,21 @@ Dave Thaler: In enterprise environment SLAAC is mandatory and DHCPv6 is optional
 a problem when hosts have A record, but not AAAA record. I'd like to work with you offline
 to see if the host scenario issues can be solved and if they also apply to router host.
 I think it is very important to solve this.
+Ole: Dave, are you happy that there's no guarantee that you'll register all the addresses?
+Dave: In fact, I specifically do not want all the host addresses to be registered. In the
+DNS case, in particular my privacy addresses.
+Bernie: Dave is talking about the previous version. Are we doing both or just the router?
+Dave: there are two separate problems here. First is being able to put the stuff in the DNS.
+Another is that I may want to register in some inventory database. They are veeery different.
+The router side cannot solve this, because the router cannot distinguish between privacy
+address and non-privacy address.
+Erik Nordmark: I read the draft and it has ND option "hosts, please send me your registration
+addresses". It would be useful to have, but if there are multiple reasons. If we want to put
+it in the DNS, we'll need to know the hostname for that. The other may be router doing DAD proxy
+for me, so the host doesn't have to up all the time.
+Suresh: Question for you, Erik. In the 6lowpan, is the RIO option sent every time?
+Erik: It is sent whenever you want.
+Ted: You can do lease query to get that data. Bulk leasequery in particular.
 
 
 
