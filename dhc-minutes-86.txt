@@ -266,9 +266,24 @@ Suresh: Question for you, Erik. In the 6lowpan, is the RIO option sent every tim
 Erik: It is sent whenever you want.
 Ted: You can do lease query to get that data. Bulk leasequery in particular.
 
+Tracking of Static/Autoconfigured IPv6 addresses
+Rajiv Asati
+There are many networks that require logging that information on who is using what IPv6 address.
+The changes are mostly in the first hop router. There's a new option for this.
+Dave: My comment apply this to both drafts. I don't understand why are we using DHCP?
+Rajiv: There's good reason. For most networks operators rely on DHCPv6 protocol to provide
+that information anyway.
+Bernie: There are networks that do both SLAAC and DHCPv6, becasue some clients don't support
+DHCPv6. 
+Sheng Jiang: A bit of history. There was a draft in 6man in 2010. 6man decided that DHCP is
+the right place if you want to do registration if you want to registration.
+Tim Chown: This is kind of ok. We have sort of smallish network with 5000 switch ports. We just
+poll those devices to get those IP:MAC information. That doesn't deal with DNS. THe other thing
+is that for a typical workstation you'll never see its autoconf address in that database.
+Paul Ebersman: There's also a link layer address option that is in IESG now.
+Ted: We'll need to check out the ipfix thing Dave mentioned.
 
+End of ietf86-caribbean1-20130314-1520-pm2.mp3
 
-
-
-[resume at audio log 42 minutes, ietf86-caribbean1-20130314-1520-pm2.mp3 from
+[resume at 0:00:00 ietf86-caribbean1-20130314-1740-pm3.mp3 from
 http://www.ietf.org/audio/ietf86/]
