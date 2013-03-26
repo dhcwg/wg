@@ -283,6 +283,42 @@ is that for a typical workstation you'll never see its autoconf address in that 
 Paul Ebersman: There's also a link layer address option that is in IESG now.
 Ted: We'll need to check out the ipfix thing Dave mentioned.
 
+Bernie: I think what the conclusion is that doing ND or using Neighbor Discovery cache by
+router or switch to notify some entity of any changes/additions/whatever is something
+worthwile to do. But it doesn't really mean that is has to be done over DHCP protocol.
+Suresh: So the two solutions suggested by Dave are ipfix and syslog.
+Rajiv: Just to clarify. syslog has been used in many, many networks and somehow failed.
+The way processes are set up in many networks is to look up in DHCP for this information. When
+the information is sent to somewhere else, a lot needs to change. What we learnt in the
+last year or so, that really doesn't help with IPv6 rollout.
+Bernie: We should end this discussion and simply say: we aren't accepting any drafts on
+this at this time. if you want to work on this and provide updated draft, maybe you can
+go back in a while and do it again, but it may be more appropriate in some other WGs.
+Suresh: I think it's like go ask somebody in ops area ADs.
+Lorenzo Colitti: Been there, done that. We went to v6ops. The level of interest was bimodal.
+They were poeple saying "you're not using dhcpv6 to assign addresses already? Hosts can have
+more than one address?" which others were saying "yeah, of course. Hosts use SLAAC and we
+scape the routers. Both solutions are done. One is suboptimal in a sense that it doesn't allow
+you to have you more than one address per host in an easy way. The other one is suboptimal
+in the sense that you need to keep kicking the routers and scripe the cli to get that information.
+Putting this into the DHCP is more of an informational push, but it does fit nicely into
+operational models.
+
+
+
+1640  draft-asati-dhc-ipv6-autoconfig-address-tracking
+      Rajiv Asati [10 min]
+      http://tools.ietf.org/html/draft-asati-dhc-ipv6-autoconfig-address-tracking-00
+      http://www.ietf.org/proceedings/86/slides/slides-86-dhc-6.pptx
+
+1650  draft-bhandari-dhc-class-based-prefix
+      Jouni Korhonen & Sri Gundavelli [10 min]
+      http://tools.ietf.org/html/draft-bhandari-dhc-class-based-prefix-04
+      http://tools.ietf.org/agenda/86/slides/slides-86-dhc-2.pdf
+
+1700  Issues with Multiple Provisioning Domains
+      Ted Lemon [10 min] (also presented at Int Area)
+
 End of ietf86-caribbean1-20130314-1520-pm2.mp3
 
 [resume at 0:00:00 ietf86-caribbean1-20130314-1740-pm3.mp3 from
