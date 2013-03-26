@@ -267,7 +267,11 @@ Erik: It is sent whenever you want.
 Ted: You can do lease query to get that data. Bulk leasequery in particular.
 
 Tracking of Static/Autoconfigured IPv6 addresses
+draft-asati-dhc-ipv6-autoconfig-address-tracking
+http://tools.ietf.org/html/draft-asati-dhc-ipv6-autoconfig-address-tracking-00
+http://www.ietf.org/proceedings/86/slides/slides-86-dhc-6.pptx
 Rajiv Asati
+
 There are many networks that require logging that information on who is using what IPv6 address.
 The changes are mostly in the first hop router. There's a new option for this.
 Dave: My comment apply this to both drafts. I don't understand why are we using DHCP?
@@ -303,18 +307,38 @@ you to have you more than one address per host in an easy way. The other one is 
 in the sense that you need to keep kicking the routers and scripe the cli to get that information.
 Putting this into the DHCP is more of an informational push, but it does fit nicely into
 operational models.
+Ted: Lorenzo, do the ops people say that scaping is bad, but there is no energy to do something
+else or do they want us to do something?
+Lorenzo: Both of the solutions suck. And there were people who were saying that we need to know
+who was using IP:MAC address as specific point in time. The come up with a conclusion that you
+have to use DHCP. That's not true. There are other ways so if cops come around, you can say
+here's the MAC address, go find this guy. DHCP seems convenient, because people have built systems
+that's tightly integrated with DHCP. It's not so much of the assignment, but the tracking.
+If there's a strong consensus that it doesn't belong here, we can go somewhere else.
+Ted: In the ideal world, some ops wg would say we thought about that problem and think DHCP is
+the right way to solve this problem. Can you guys build the solution for us? That's what I'd like
+to see. What I'm hearing from Lorenzo is that we probably won't get that feedback.
+Sheng Jiang: What you said before is meaning that DHC WG can't do. Earlier you said that DHC WG
+can't create new DHCP options.
+Ted: This is not a new DHCP option, this is a protocol extension.
+Suresh: I'd like to propose something. Bunch of us go to guys in ops area and if they tell us
+the DHCP is the way to do it, then we do it here, right? But we split the problems from each other.
+Bernie: right. Splitting DNS and registration piece for logging is split in separate.
+Paul Ebersman: For people who do address assignment, I'm ok with it. I'm uncomfortable for people
+who do just the registration to do DHCP.
 
+DHCPv6 class based prefix
+draft-bhandari-dhc-class-based-prefix
+presented by Sri Gundavelli
+http://tools.ietf.org/html/draft-bhandari-dhc-class-based-prefix-04
+http://tools.ietf.org/agenda/86/slides/slides-86-dhc-2.pdf
 
+Sri: What's the problem? Currently we're delivering an address or a prefix, but we do not
+deliver any metadata. The host has no clue what the prefixes mean. Those prefixes can have
+multiple properties. For example a mobile properties. How do we convey that to the host?
+One use case is 3GPP architecture.
+The proposed solution is to convey to 
 
-1640  draft-asati-dhc-ipv6-autoconfig-address-tracking
-      Rajiv Asati [10 min]
-      http://tools.ietf.org/html/draft-asati-dhc-ipv6-autoconfig-address-tracking-00
-      http://www.ietf.org/proceedings/86/slides/slides-86-dhc-6.pptx
-
-1650  draft-bhandari-dhc-class-based-prefix
-      Jouni Korhonen & Sri Gundavelli [10 min]
-      http://tools.ietf.org/html/draft-bhandari-dhc-class-based-prefix-04
-      http://tools.ietf.org/agenda/86/slides/slides-86-dhc-2.pdf
 
 1700  Issues with Multiple Provisioning Domains
       Ted Lemon [10 min] (also presented at Int Area)
