@@ -336,9 +336,41 @@ http://tools.ietf.org/agenda/86/slides/slides-86-dhc-2.pdf
 Sri: What's the problem? Currently we're delivering an address or a prefix, but we do not
 deliver any metadata. The host has no clue what the prefixes mean. Those prefixes can have
 multiple properties. For example a mobile properties. How do we convey that to the host?
-One use case is 3GPP architecture.
-The proposed solution is to convey to 
-
+One use case is 3GPP architecture. When mobile node visits a network, it could potentially
+get 2 prefixes. One prefix for using visiting network and the other one for accessing services
+in my home network. We could solve the problem using NAT, but we're mssing is that the
+addresses do not reflect the properties. This is the fundamental issue. We're proposing 2 things.
+The first one is a prefix property, which is 16bit flag, representing this is my home address,
+this address has no internet access, this is my local address etc. Some global properties that
+IANA can register and manage. The second option is a prefix class for localized service. It is
+localized in scope.
+Bernie: I can understand the IANA registered part. But for the localized list - how do you know
+what those bits mean in this network? And when you move to a different network?
+Alex Petrescu: I have not read the draft, but I wondered what are the examples of the properties.
+Some of the properties you mentioned are already there. For example ULA can be detected from
+first bits.
+Mark Townsley: For example, if it's a prefix that it's bound to mobility system, so if you need
+session survavilitiy, you may use this.
+Kim Kinnear: 2 issues. One is 16 bits. I hate to be stuck in 16 bits. It should be variable length
+and wil grow one people find new uses for extra bits. The other one is the class. I remain
+uncomfortable how you specify all classes. I'd hope there's some way to use class option and to
+specify all classes and not use the ORO.
+Bernie: Cutting the line.
+Ian Farrer: Duestche Telecom. We're interested in this work. We want to push multiple prefixes to 
+customers for different services. One would be best effort, the other is for video etc. But then
+you have source address selection problem. For that reason I like that solution.
+Sheng Jiang: 3 comments: First of all I think the (inaudible) is really good. Second, I agree
+with Bernie, most of the meanings are mostly local. Moving from one network to another the semantics
+will change. Third, how good the solution is based on how good the properties are. For example:
+one of the bits is that the network is charged. That is not enough. I have two networks, one cheap
+and one very expensive.
+Mark Townsley: This piece of the solution it's incredible what the hosts are doing today to find
+out if they're connected to the Internet. My iphone that tries to eliminate all the options to the
+use actually has switches "use 3G for facebook yes/no". Applications want to know more about the
+network. Right now they need to find it out on their own by pinging different hosts. We want the
+network to tell the hosts more information. That's the property. The other is the local property.
+Applications can either use it or ignore it. The reason it is in DHCP is that we don't have to
+get it from layer 2 interface.
 
 1700  Issues with Multiple Provisioning Domains
       Ted Lemon [10 min] (also presented at Int Area)
