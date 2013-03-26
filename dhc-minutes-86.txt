@@ -373,9 +373,47 @@ Applications can either use it or ignore it. The reason it is in DHCP is that we
 get it from layer 2 interface.
 
 1700  Issues with Multiple Provisioning Domains
-      Ted Lemon [10 min] (also presented at Int Area)
-
-End of ietf86-caribbean1-20130314-1520-pm2.mp3
-
-[resume at 0:00:00 ietf86-caribbean1-20130314-1740-pm3.mp3 from
-http://www.ietf.org/audio/ietf86/]
+Ted Lemon
+This is very much related to what Mark was talking about. The problem we have is first of all, 
+what's provisioning domain? It is single collection of configuration information. It includes
+addresses and routing information, resolver address etc all of which came to you from a single
+provider. I'm sure everyone experienced a case when you're walking on a street and enjoy 3G
+or LTE connection. When you enter range of local wifi with captive portal, your connection
+suddenly dies, because you're in wifi range. You don't have a connectivity, because there's
+a captive portal. Another example: you have LTE and wifi. LTE is faster than WIFI, but it has
+bandwidth caps. Yet another example: during IETF meeting is Maastricht, there was a very fast
+hotel network that allowed you to do web, but you couldn't do anything (check mail or ssh anything).
+Captive portal sometimes send you something to fool you that you have connection, but you
+really don't. You can't say I'm gonna to use this or that interface for now. Sometimes no
+single prefix in your network will solve all your problems. This is also not a happy eyeball
+problem. For example in the corporate VPN case, you're leaking to the whole world the information
+that you're talking to your machines inside your network.
+Wes George: Wearing my sunset4 chair hat, some provider network may have v6 only, v6-transition,
+v4 with NAT, NAT64 or some combination of the above and it may be useful for the provider and
+the host to communicate what's available. If something needs an ALG and it won't work, because
+there's not ALG in the network.
+Sheng Jiang: We have this problem already. There's not enough information provided from the
+network to the hosts. Is it possible to define some flexible way to define it. We have XML language
+for netconf, maybe we could use it?
+Ted: The problem with XML is that it is heavyweight and putting it into RA would be difficult.
+Lorenzo Colitti: What are the information missing here that you can't be solved with full metrix
+of src/dst prefix information and preference?
+Ted: If I had an infinite wisdom want...
+Mark Townsley: The google guy says "give us infinite information"
+(laughs)
+Lorenzo Colitti: If you had infinite information, but you could represent it only as source/dst
+prefix and preference? The other is if you get some information from 2 networks, how do you
+compare them?
+Ted: I'll give you an answer, which I don't claim to be the correct one, but it will give you
+and idea what the correct answer might be. If you have some sort of trust relationship with one
+source of information, you may be able to make use it.
+Rajiv: If network A tells me that is there's a better bandwidth, and network B telling me
+this is more expensive, I don't have apple to apple comparison anymore. What should I do - 
+ask the user to decide?
+Ted: we're trying to design an architecture that will avoid asking user a lot of stupid questions.
+Lorenzo: The problem with fixed number of bits is that you soon get the complixity that cannot
+be described with them, like TOS in IPv4. The only case where it is still useful is inside your
+own network. Instead of having one global registry, you'd have per-AS registry.
+Ted: I'd like to interject here. We're talking about not the DHCP part of the part of the problem.
+That's the kind of conversation I'd like to have tomorrow in MIF.
+Bernie: And we're out of time. Thank you, folks, and see you on the mailing list and in Berlin.
