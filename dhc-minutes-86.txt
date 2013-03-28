@@ -149,14 +149,14 @@ presented by Ole Troan
 draft-ietf-dhc-dhcpv6-tunnel
 
 This is opposite of the previously discussed options. DHCPv6 client working
-over IPv4 networks. The problem is to run DHCPv6 client on interface that
-does not have link-local interface and doesn't support multicast. Possible
-solutions are: a) integrate relay with client b) allow client-server
-communication using global address (with solving the problem of how the
-client can learn server address).
+over IPv4 networks. The problem is to run DHCPv6 client on interface that does
+not have link-local interface and doesn't support multicast. Possible solutions
+are: a) integrate relay with client b) allow client-server communication using
+global address (with solving the problem of how the client can learn server
+address).
 
-Ted: We had discussion on mailing list: do we colocate relay with client
-or "break the protocol" and allow unicast? 
+Ted: We had discussion on mailing list: do we colocate relay with client or
+"break the protocol" and allow unicast? 
 Tomek: Is it solicit or information-request only?
 Ted: good point. inf-request only. The point in not allowing clients unicast
 packets to server to break down every client that attempts to do it.
@@ -171,68 +171,66 @@ Bernie: That's brillant. Thanks, Ralph!
 (laughs)
 
 Discussion regarding DHCPv4 over IPv6 networks
-Ted: My expectation and hope about this is that we find a nuanced solution,
-not a sledgehammer.
+Ted: My expectation and hope about this is that we find a nuanced solution, not
+a sledgehammer.
 Kim Kinnear: Are we trying to pick one of the solution or some variant of
 thereof?
-Ted: We are not trying to pick one of 3 choices. I think the solution to
-the problem is to do just information request. BTW the ideal environment
-for this is that you don't have any IPv4 services left. If your provider
-has IPv6 only network, you are not supposed to need any information about
-IPv4 services. We're configuring CPE here. CPE can provide DNS over IPv4
-to end hosts, but talk IPv6 upstream.
-Ian: We did a lot of work in Softwires to find provisioning methods and
-the way it is constructed now is to use a single container. If we chose
-to break that down, it will put us back a long way.
-Ted: We talked about only stateless here. When talking about unified cpe
-case is one of:
-a) you get just this and this will be enough or b) you're doing stateful,
-so you need stateful IPv4 allocation. There's no one solution that meets
-all needs. First is the timing. Hopefully, as we further into the future,
-the need for IPv4 addresses will decline. CPE devices have to use PD.
-That part is not optional. What you don't get is a dynamically allocated
-address. And if you need to configure additional IPv4 parameters, that
-comes for free here with DHCPv4 server.
-Ian: In the latest experiments we found that having dynamic allocation
-is a nice thing to have.
-Rajiv: It may be a DNS proxy. Perhaps we could have a flag that says if
-we want to do dynamic allocation?
-Kim: There's the draft that Ian proposed with 3 cases. Do you want to
-pick one of those 3 cases?
-Ted: No. Ian is just innocent bystander. He wrote the draft as a favor
-for me. This is not just about unified CPE. This is something that is
-happening in Softwires, so it motivates us, but it is not the only
-reason. 
-Kim: One of the options discussed was porting v4 options to v6, one by
-one. This is clearly a non-starter.
-Ted: So it's either approach 1 or 3. The third option is a tunnel. I
-think tunnel is a wrong thing to do. Tunnel do not support all the
-things that are needed. And unnumbered tunnels are not really tunnels.
+Ted: We are not trying to pick one of 3 choices. I think the solution to the
+problem is to do just information request. BTW the ideal environment for this
+is that you don't have any IPv4 services left. If your provider has IPv6 only
+network, you are not supposed to need any information about IPv4 services.
+We're configuring CPE here. CPE can provide DNS over IPv4 to end hosts, but
+talk IPv6 upstream.
+Ian: We did a lot of work in Softwires to find provisioning methods and the
+way it is constructed now is to use a single container. If we chose to break
+that down, it will put us back a long way.
+Ted: We talked about only stateless here. When talking about unified cpe case
+is one of:
+a) you get just this and this will be enough or b) you're doing stateful, so
+you need stateful IPv4 allocation. There's no one solution that meets all
+needs. First is the timing. Hopefully, as we further into the future, the
+need for IPv4 addresses will decline. CPE devices have to use PD. That part
+is not optional. What you don't get is a dynamically allocated address. And
+if you need to configure additional IPv4 parameters, that comes for free here
+with DHCPv4 server.
+Ian: In the latest experiments we found that having dynamic allocation is a
+nice thing to have.
+Rajiv: It may be a DNS proxy. Perhaps we could have a flag that says if we
+want to do dynamic allocation?
+Kim: There's the draft that Ian proposed with 3 cases. Do you want to pick
+one of those 3 cases?
+Ted: No. Ian is just innocent bystander. He wrote the draft as a favor for
+me. This is not just about unified CPE. This is something that is happening
+in Softwires, so it motivates us, but it is not the only reason. 
+Kim: One of the options discussed was porting v4 options to v6, one by one.
+This is clearly a non-starter.
+Ted: So it's either approach 1 or 3. The third option is a tunnel. I think
+tunnel is a wrong thing to do. Tunnel do not support all the things that are
+needed. And unnumbered tunnels are not really tunnels.
 Kim: so it's mostly the first solution.
-Ted: We had couple discussions. First is to when you have initial
-DHCPv6 configuration, you may also get an IPv6 address of the DHCPv4
-server, and then you do something DHCPv4-like to DHCPv4 server over
-IPv6. The other thing that you could do, which actually has some
-attractive positive quality, is that you can define a new DHCPv4
-relay message option in DHCPv6 and the client multicasts DHCPv6
-message with DHCPv4 message in it to all v6 servers and v6 relays. It
-will also likely reach the same server as regular DHCPv6 packets
-would do.
-Kim: I haven't been following all the drafts in that area recently.
-Is there a draft that explains that?
-Ted: No. We came up with the draft recenly brainstorming. Does
-anybody think this is a bad idea?
+Ted: We had couple discussions. First is to when you have initial DHCPv6
+configuration, you may also get an IPv6 address of the DHCPv4 server, and
+then you do something DHCPv4-like to DHCPv4 server over IPv6. The other
+thing that you could do, which actually has some attractive positive
+quality, is that you can define a new DHCPv4 relay message option in DHCPv6
+and the client multicasts DHCPv6 message with DHCPv4 message in it to all v6
+servers and v6 relays. It will also likely reach the same server as regular
+DHCPv6 packets would do.
+Kim: I haven't been following all the drafts in that area recently. Is there
+a draft that explains that?
+Ted: No. We came up with the draft recenly brainstorming. Does anybody think
+this is a bad idea?
 Ole: can you state is again, please?
-Ted: What we are proposing here is we have either relay-forw message
-(maybe relay-forw4 message) that has relay-msg4 option inside it,
-following the same structure as relayed DHCPv6. The big picture is
-that you essentially have one infrastructure that's delivering both
-DHCPv4 and DHCPv6 messages that arrive at the same destination
-point. At the end you decide to have either one server or two.
+Ted: What we are proposing here is we have either relay-forw message (maybe
+relay-forw4 message) that has relay-msg4 option inside it, following the
+same structure as relayed DHCPv6. The big picture is that you essentially
+have one infrastructure that's delivering both DHCPv4 and DHCPv6 messages
+that arrive at the same destination point. At the end you decide to have
+either one server or two.
 Rajiv: The downside is that you have modify a relay.
 Ted: Only the PE relay.
-Bernie: And you need to change the server. There's a question about
-if we want to use existing message type of something new.
+Bernie: And you need to change the server. There's a question about if we want
+to use existing message type of something new.
 Ted: Speaking of which, do we have a volunteer to write a draft?
 [Tomek volnteering].
 Ted: You're the chair...
@@ -240,23 +238,22 @@ Tomek: Am I still allowed to write drafts?
 (laughs)
 Rajiv: Are we still requiring server modification?
 Ted: yes, but it is very localized.
-Bernie: Let's take this to the list. We should write something short
-that explains the basic concepts. Is there anyone that would like to
-write a draft?
-Ian: we have different solutions draft? Would it make sense to have
-short description there?
-Ted: No. It needs to be completed and document what we have agreed
-here. It will refer to the solution.
-Ian: That's a work item that is blocking several other Softwire
-works. We don't need it published as RFC, we just need a decision.
-Ole: I think is a grand idea for now, but I reserve my right to
-change my mind tomorrow. Would it be easier to deploy if you
-colocate DHCPv4 and DHCPv6 servers?
+Bernie: Let's take this to the list. We should write something short that
+explains the basic concepts. Is there anyone that would like to write a draft?
+Ian: we have different solutions draft? Would it make sense to have short
+description there?
+Ted: No. It needs to be completed and document what we have agreed here. It
+will refer to the solution.
+Ian: That's a work item that is blocking several other Softwire works. We
+don't need it published as RFC, we just need a decision.
+Ole: I think is a grand idea for now, but I reserve my right to change my
+mind tomorrow. Would it be easier to deploy if you colocate DHCPv4 and
+DHCPv6 servers?
 Ted: Like Cisco and Nominum do?
-Suresh Krishnan: The other solutions have something written down.
-We're talking about very fuzzy things. I volunteer to work on this.
-Marcin Siodelski: I think it is a good idea to document that, so I
-volunteer to do the job.
+Suresh Krishnan: The other solutions have something written down. We're
+talking about very fuzzy things. I volunteer to work on this.
+Marcin Siodelski: I think it is a good idea to document that, so I volunteer
+to do the job.
 Ted: Alright! Does anyone want to work with him?
 Bernie: I'll work with him, also Tomek will help.
 
@@ -264,37 +261,36 @@ Bernie: I'll work with him, also Tomek will help.
 A Generic IPv6 Addresses Registration Solution Using DHCPv6
 Suresh Krishnan
 
-This draft was around for a while. It was presented before. Chairs told 
-us to go to v6ops and we got beaten up a bit. There used to be 2
-senarios supported for registering a host: by a router and by the host
-itself. The host registration is now deemphasized. The host registration
-is considered a DOS vector.
+This draft was around for a while. It was presented before. Chairs told us
+to go to v6ops and we got beaten up a bit. There used to be 2 senarios
+supported for registering a host: by a router and by the host itself. The
+host registration is now deemphasized. The host registration is considered
+a DOS vector.
 Dave Thaler: In enterprise environment SLAAC is mandatory and DHCPv6 is
 optional. This makes a problem when hosts have A record, but not AAAA
-record. I'd like to work with you offline to see if the host scenario
-issues can be solved and if they also apply to router host. I think it
-is very important to solve this.
-Ole: Dave, are you happy that there's no guarantee that you'll  register
-all the addresses?
+record. I'd like to work with you offline to see if the host scenario issues
+can be solved and if they also apply to router host. I think it is very
+important to solve this.
+Ole: Dave, are you happy that there's no guarantee that you'll  register all
+the addresses?
 Dave: In fact, I specifically do not want all the host addresses to be
 registered. In the DNS case, in particular my privacy addresses.
-Bernie: Dave is talking about the previous version. Are we doing both
-or just the router?
-Dave: there are two separate problems here. First is being able to put
-the stuff in the DNS. Another is that I may want to  register in some
-inventory database. They are very different. The router side cannot
-solve this, because the router cannot distinguish between privacy
-address and non-privacy address.
-Erik Nordmark: I read the draft and it has ND option "hosts, please
-send me your registration addresses". It would be useful to have, but
-if there are multiple reasons. If we want to put it in the DNS, we'll
-need to know the hostname for that. The other may be router doing DAD
-proxy for me, so the host doesn't have to up all the time.
+Bernie: Dave is talking about the previous version. Are we doing both or
+just the router?
+Dave: there are two separate problems here. First is being able to put the
+stuff in the DNS. Another is that I may want to  register in some inventory
+database. They are very different. The router side cannot solve this,
+because the router cannot distinguish between privacy address and
+non-privacy address.
+Erik Nordmark: I read the draft and it has ND option "hosts, please send me
+your registration addresses". It would be useful to have, but if there are
+multiple reasons. If we want to put it in the DNS, we'll need to know the
+hostname for that. The other may be router doing DAD proxy for me, so the
+host doesn't have to up all the time.
 Suresh: Question for you, Erik. In the 6lowpan, is the RIO option sent
 every time?
 Erik: It is sent whenever you want.
-Ted: You can do lease query to get that data. Bulk leasequery in
-particular.
+Ted: You can do lease query to get that data. Bulk leasequery in particular.
 
 Tracking of Static/Autoconfigured IPv6 addresses
 draft-asati-dhc-ipv6-autoconfig-address-tracking
@@ -305,22 +301,20 @@ Rajiv Asati
 There are many networks that require logging that information on who is
 using what IPv6 address. The changes are mostly in the first hop router.
 There's a new option for this.
-Dave: My comment apply this to both drafts. I don't understand why are
-we using DHCP?
+Dave: My comment apply this to both drafts. I don't understand why are we
+using DHCP?
 Rajiv: There's good reason. For most networks operators rely on DHCPv6
 protocol to provide that information anyway.
 Bernie: There are networks that do both SLAAC and DHCPv6, because some
 clients don't support DHCPv6. 
 Sheng Jiang: A bit of history. There was a draft in 6man in 2010. 6man
-decided that DHCP is the right place if you want to do registration if
-you want to registration.
-Tim Chown: This is kind of ok. We have sort of smallish network with
-5000 switch ports. We just poll those devices to get those IP:MAC
-information. That doesn't deal with DNS. The other thing is that for a
-typical workstation you'll never see its autoconf address in that
-database.
-Paul Ebersman: There's also a link layer address option that is in IESG
-now.
+decided that DHCP is the right place if you want to do registration if you
+want to registration.
+Tim Chown: This is kind of ok. We have sort of smallish network with 5000
+switch ports. We just poll those devices to get those IP:MAC information.
+That doesn't deal with DNS. The other thing is that for a typical
+workstation you'll never see its autoconf address in that database.
+Paul Ebersman: There's also a link layer address option that is in IESG now.
 Ted: We'll need to check out the ipfix thing Dave mentioned.
 
 Bernie: I think what the conclusion is that doing ND or using Neighbor
@@ -329,45 +323,45 @@ additions/whatever is something worthwile to do. But it doesn't really mean
 that is has to be done over DHCP protocol.
 Suresh: So the two solutions suggested by Dave are ipfix and syslog.
 Rajiv: Just to clarify. syslog has been used in many, many networks and
-somehow failed. The way processes are set up in many networks is to look
-up in DHCP for this information. When the information is sent to somewhere
+somehow failed. The way processes are set up in many networks is to look up
+in DHCP for this information. When the information is sent to somewhere
 else, a lot needs to change. What we learned in the last year or so, that
 really doesn't help with IPv6 rollout.
 Bernie: We should end this discussion and simply say: we aren't accepting
 any drafts on this at this time. If you want to work on this and provide
-updated draft, maybe you can go back in a while and do it again, but it
-may be more appropriate in some other WGs.
+updated draft, maybe you can go back in a while and do it again, but it may
+be more appropriate in some other WGs.
 Suresh: I think it's like go ask somebody in ops area ADs.
 Lorenzo Colitti: Been there, done that. We went to v6ops. The level of
-interest was bimodal. They were poeple saying "you're not using dhcpv6
-to assign addresses already? Hosts can have more than one address?" which
+interest was bimodal. They were poeple saying "you're not using dhcpv6 to
+assign addresses already? Hosts can have more than one address?" which
 others were saying "yeah, of course. Hosts use SLAAC and we scrape the
 routers. Both solutions are done. One is suboptimal in a sense that it
-doesn't allow you to have you more than one address per host in an easy
-way. The other one is suboptimal in the sense that you need to keep
-kicking the routers and scrape the cli to get that information. Putting
-this into the DHCP is more of an informational push, but it does fit
-nicely into operational models.
+doesn't allow you to have you more than one address per host in an easy way.
+The other one is suboptimal in the sense that you need to keep kicking the
+routers and scrape the cli to get that information. Putting this into the
+DHCP is more of an informational push, but it does fit nicely into
+operational models.
 Ted: Lorenzo, do the ops people say that scraping is bad, but there is no
 energy to do something else or do they want us to do something?
-Lorenzo: Both of the solutions suck. And there were people who were
-saying that we need to know who was using IP:MAC address as specific
-point in time. The come up with a conclusion that you have to use DHCP.
-That's not true. There are other ways so if cops come around, you can
-say here's the MAC address, go find this guy. DHCP seems convenient,
-because people have built systems that's tightly integrated with DHCP.
-It's not so much of the assignment, but the tracking. If there's a
-strong consensus that it doesn't belong here, we can go somewhere else.
+Lorenzo: Both of the solutions suck. And there were people who were saying
+that we need to know who was using IP:MAC address as specific point in time.
+The come up with a conclusion that you have to use DHCP. That's not true.
+There are other ways so if cops come around, you can say here's the MAC
+address, go find this guy. DHCP seems convenient, because people have built
+systems that's tightly integrated with DHCP. It's not so much of the
+assignment, but the tracking. If there's a strong consensus that it doesn't
+belong here, we can go somewhere else.
 Ted: In the ideal world, some ops wg would say we thought about that
-problem and think DHCP is the right way to solve this problem. Can you
-guys build the solution for us? That's what I'd like to see. What I'm
-hearing from Lorenzo is that we probably won't get that feedback.
-Sheng Jiang: What you said before is meaning that DHC WG can't do.
-Earlier you said that DHC WG can't create new DHCP options.
+problem and think DHCP is the right way to solve this problem. Can you guys
+build the solution for us? That's what I'd like to see. What I'm hearing
+from Lorenzo is that we probably won't get that feedback.
+Sheng Jiang: What you said before is meaning that DHC WG can't do. Earlier
+you said that DHC WG can't create new DHCP options.
 Ted: This is not a new DHCP option, this is a protocol extension.
-Suresh: I'd like to propose something. Bunch of us go to guys in ops
-area and if they tell us the DHCP is the way to do it, then we do it
-here, right? But we split the problems from each other.
+Suresh: I'd like to propose something. Bunch of us go to guys in ops area
+and if they tell us the DHCP is the way to do it, then we do it here,
+right? But we split the problems from each other.
 Bernie: Right. Splitting DNS and registration piece for logging is split
 in separate.
 Paul Ebersman: For people who do address assignment, I'm ok with it. I'm
@@ -402,13 +396,13 @@ Mark Townsley: For example, if it's a prefix that it's bound to mobility
 system, so if you need session survavilitiy, you may use this.
 Kim Kinnear: 2 issues. One is 16 bits. I hate to be stuck in 16 bits. It
 should be variable length and wil grow one people find new uses for extra
-bits. The other one is the class. I remain uncomfortable how you specify
-all classes. I'd hope there's some way to use class option and to specify
-all classes and not use the ORO.
+bits. The other one is the class. I remain uncomfortable how you specify all
+classes. I'd hope there's some way to use class option and to specify all
+classes and not use the ORO.
 Bernie: Cutting the line.
-Ian Farrer: Duestche Telecom. We're interested in this work. We want to
-push multiple prefixes to  customers for different services. One would be
-best effort, the other is for video etc. But then you have source address
+Ian Farrer: Duestche Telecom. We're interested in this work. We want to push
+multiple prefixes to  customers for different services. One would be best
+effort, the other is for video etc. But then you have source address
 selection problem. For that reason I like that solution.
 Sheng Jiang: 3 comments: First of all I think the (inaudible) is really
 good. Second, I agree with Bernie, most of the meanings are mostly local.
@@ -434,15 +428,15 @@ of configuration information. It includes addresses and routing
 information, resolver address etc all of which came to you from a single
 provider. I'm sure everyone experienced a case when you're walking on a
 street and enjoy 3G or LTE connection. When you enter range of local wifi
-with captive portal, your connection suddenly dies, because you're in
-wifi range. You don't have a connectivity, because there's a captive
-portal. Another example: you have LTE and wifi. LTE is faster than wifi,
-but it has bandwidth caps. Yet another example: during IETF meeting is
+with captive portal, your connection suddenly dies, because you're in wifi
+range. You don't have a connectivity, because there's a captive portal.
+Another example: you have LTE and wifi. LTE is faster than wifi, but it 
+has bandwidth caps. Yet another example: during IETF meeting is
 Maastricht, there was a very fast hotel network that allowed you to do
-web, but you couldn't do anything (check mail or ssh anything).
-Captive portal sometimes send you something to fool you that you have
-connection, but you really don't. You can't say I'm gonna to use this or
-that interface for now. Sometimes no single prefix in your network will
+web, but you couldn't do anything (check mail or ssh anything). Captive
+portal sometimes send you something to fool you that you have connection,
+but you really don't. You can't say I'm gonna to use this or that
+interface for now. Sometimes no single prefix in your network will
 solve all your problems. This is also not a happy eyeball problem. For
 example in the corporate VPN case, you're leaking to the whole world the
 information that you're talking to your machines inside your network.
@@ -455,8 +449,8 @@ Sheng Jiang: We have this problem already. There's not enough information
 provided from the network to the hosts. Is it possible to define some
 flexible way to define it. We have XML language for netconf, maybe we
 could use it?
-Ted: The problem with XML is that it is heavyweight and putting it into
-RA would be difficult.
+Ted: The problem with XML is that it is heavyweight and putting it into RA 
+would be difficult.
 Lorenzo Colitti: What are the information missing here that you can't be
 solved with full metrix of src/dst prefix information and preference?
 Ted: If I had an infinite wisdom want...
@@ -475,9 +469,9 @@ comparison anymore. What should I do -  ask the user to decide?
 Ted: We're trying to design an architecture that will avoid asking user
 a lot of stupid questions.
 Lorenzo: The problem with fixed number of bits is that you soon get the
-complixity that cannot be described with them, like TOS in IPv4. The
-only case where it is still useful is inside your own network. Instead
-of having one global registry, you'd have per-AS registry.
+complixity that cannot be described with them, like TOS in IPv4. The only
+case where it is still useful is inside your own network. Instead of
+having one global registry, you'd have per-AS registry.
 Ted: I'd like to interject here. We're talking about not the DHCP part
 of the part of the problem. That's the kind of conversation I'd like to
 have tomorrow in MIF.
