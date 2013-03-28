@@ -271,7 +271,7 @@ optional. This makes a problem when hosts have A record, but not AAAA
 record. I'd like to work with you offline to see if the host scenario issues
 can be solved and if they also apply to router host. I think it is very
 important to solve this.
-Ole: Dave, are you happy that there's no guarantee that you'll  register all
+Ole: Dave, are you happy that there's no guarantee that you'll register all
 the addresses?
 Dave: In fact, I specifically do not want all the host addresses to be
 registered. In the DNS case, in particular my privacy addresses.
@@ -431,7 +431,7 @@ street and enjoy 3G or LTE connection. When you enter range of local wifi
 with captive portal, your connection suddenly dies, because you're in wifi
 range. You don't have a connectivity, because there's a captive portal.
 Another example: you have LTE and wifi. LTE is faster than wifi, but it 
-has bandwidth caps. Yet another example: during IETF meeting is
+has bandwidth caps. Yet another example: during IETF meeting in
 Maastricht, there was a very fast hotel network that allowed you to do
 web, but you couldn't do anything (check mail or ssh anything). Captive
 portal sometimes send you something to fool you that you have connection,
@@ -465,7 +465,7 @@ have some sort of trust relationship with one source of information, you
 may be able to make use it.
 Rajiv: If network A tells me that is there's a better bandwidth, and
 network B telling me this is more expensive, I don't have apple to apple
-comparison anymore. What should I do -  ask the user to decide?
+comparison anymore. What should I do - ask the user to decide?
 Ted: We're trying to design an architecture that will avoid asking user
 a lot of stupid questions.
 Lorenzo: The problem with fixed number of bits is that you soon get the
