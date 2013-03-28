@@ -1,9 +1,9 @@
              Dynamic Host Configuration Working Group
          IETF 86 Meeting Minutes (DRAFT - March 28, 2013)
 
-Note: These minutes were written after meeting based on audio logs and
-notes. Please excuse any inaccuracies. For a less detailed summary,
-see http://trac.tools.ietf.org/area/int/trac/wiki/IETF86.
+Note: These minutes were written after meeting the based on audio logs and
+notes. Please excuse any inaccuracies. For a less detailed summary, see
+http://trac.tools.ietf.org/area/int/trac/wiki/IETF86.
 
 Agenda bashing: Ole Troan requested moving his presentation up to other
 presentations about DHCPv4-over-IPv6 and chairs did that.
@@ -49,7 +49,7 @@ WG drafts:
 - draft-ietf-dhc-dhcpv6-prefix-pool-opt-02 (wglc requested, chairs will announce)
 - draft-ietf-dhc-host-gen-id-05 & draft-ietf-dhc-cga-config-dhcpv6-04
   authors asked if there is still interest in this work? No comments from WG,
-  will take to the list, but likely drop
+  will take to the list, but likely drop.
 
 Potential WG items:
 - draft-bhandari-dhc-class-based-prefix-04 (author would like WG to adopt,
