@@ -1,13 +1,14 @@
-Document Writeup
+Document Writeup, template from IESG area on ietf.org, dated 24 February 2012.
 
-As required by RFC 4858, this is the current template for the Document Shepherd
-Write-Up.
-
-Changes are expected over time. This version is dated 24 February 2012.
+draft-ietf-dhc-dhcpv6-radius-opt-09 write-up
 
 (1) What type of RFC is being requested (BCP, Proposed Standard, Internet
 Standard, Informational, Experimental, or Historic)? Why is this the proper type
 of RFC? Is this type of RFC indicated in the title page header?
+
+Proposed standard. This document defines an extension to the DHCPv6 protocol
+(and defines new DHCPv6 option), which requires standards track. The intended
+type is indicated in the header.
 
 (2) The IESG approval announcement includes a Document Announcement
 Write-Up. Please provide such a Document Announcement Write-Up. Recent examples
@@ -16,40 +17,61 @@ announcement contains the following sections:
 
 Technical Summary:
 
-Relevant content can frequently be found in the abstract and/or introduction of
-the document. If not, this may be an indication that there are deficiencies in
-the abstract or introduction.
+  This document defines RADIUS DHCPv6 option that is similar to its DHCPv4
+  counter-part that was defined in RFC4014. The DHCPv6 RADIUS option provides a
+  mechanism to exchange authorization and identification information between the
+  DHCPv6 relay agent and the DHCPv6 server.  This mechanism is meant for the
+  centralized DHCPv6 server to select the right configuration for the requesting
+  DHCPv6 client based on the authorization information received from the RADIUS
+  server, which is not co-located with the DHCPv6 server.  The Network Access
+  Server (NAS) acts as DHCPv6 relay agent and RADIUS client simultaneously in
+  this document.
 
 Working Group Summary:
 
-Was there anything in WG process that is worth noting? For example, was there
-controversy about particular points or were there decisions where the consensus
-was particularly rough?
+  This document was called draft-yeh-dhc-dhcpv6-authorization-opt prior to its
+  adoption. There was unanimous support for it (9 people in favor of adoption
+  and none against), so this document was adopted in May 2012. There was quite
+  high interest in this work - 55 posts since its adoption. There was never any
+  opposition for this work.
 
 Document Quality:
 
-Are there existing implementations of the protocol? Have a significant number of
-vendors indicated their plan to implement the specification? Are there any
-reviewers that merit special mention as having done a thorough review, e.g., one
-that resulted in important changes or a conclusion that the document had no
-substantive issues? If there was a MIB Doctor, Media Type or other expert
-review, what was its course (briefly)? In the case of a Media Type review, on
-what date was the request posted?
+  I'm not aware of any existing implementations, but the level of support from
+  both DHCP vendors (Nominum, Weird Solutions, Cisco, ISC), hardware vendors
+  (Huawei, Cisco) and operators (Orange, Telecom Italia) suggests that this will
+  be implemented and deployed shortly after option code is assigned by IANA.
+  There was no single lead reviewer and many people contributed to the draft (55
+  posts during its WG life). This document went through rapid updates (10
+  revisions 10 months), because its lead author - Leaf Yeh - was eager to
+  address any comments as soon as they appeared.
 
 Personnel:
 
 Who is the Document Shepherd? Who is the Responsible Area Director?
 
+Tomek Mrugalski is the document shepherd. Ted Lemon is the responsible AD.
+
 (3) Briefly describe the review of this document that was performed by the
 Document Shepherd. If this version of the document is not ready for publication,
 please explain why the document is being forwarded to the IESG.
 
+TODO
+
 (4) Does the document Shepherd have any concerns about the depth or breadth of
 the reviews that have been performed?
+
+Yes. This document is between area of expertise of 2 WGs: DHC and RADEXT. It
+was very well reviewed (detailed discussions and reviews with 55 posts total)
+in DHC. There was only one post about it in RADEXT wg.
+http://www.ietf.org/mail-archive/web/radext/current/msg07717.html
 
 (5) Do portions of the document need review from a particular or from broader
 perspective, e.g., security, operational complexity, AAA, DNS, DHCP, XML, or
 internationalization? If so, describe the review that took place.
+
+This document has had a great deal of careful DHCP review. It did not
+get enough RADIUS review.
 
 (6) Describe any specific concerns or issues that the Document Shepherd has with
 this document that the Responsible Area Director and/or the IESG should be aware
@@ -58,39 +80,64 @@ document, or has concerns whether there really is a need for it. In any event,
 if the WG has discussed those issues and has indicated that it still wishes to
 advance the document, detail those concerns here.
 
+TODO
+
 (7) Has each author confirmed that any and all appropriate IPR disclosures
 required for full conformance with the provisions of BCP 78 and BCP 79 have
 already been filed. If not, explain why?
 
+Yes, the authors, Leaf Yeh and Mohamed Boucadair, did confirm in writing that
+they are not aware of any IPR.
+
 (8) Has an IPR disclosure been filed that references this document? If so,
 summarize any WG discussion and conclusion regarding the IPR disclosures.
+
+No.
 
 (9) How solid is the WG consensus behind this document? Does it represent the
 strong concurrence of a few individuals, with others being silent, or does the
 WG as a whole understand and agree with it?
+
+There was very broad support for adopting this document. It was later reviewed
+couple times by 6 active WG participants. All changes were mostly minor and
+did not change the basic mechanism (that was operationally proven to work in
+DHCPv4).
 
 (10) Has anyone threatened an appeal or otherwise indicated extreme discontent?
 If so, please summarise the areas of conflict in separate email messages to the
 Responsible Area Director. (It should be in a separate email because this
 questionnaire is publicly available.)
 
+No. There was unanimous support for this work and nobody raised any objections.
+
 (11) Identify any ID nits the Document Shepherd has found in this document. (See
 http://www.ietf.org/tools/idnits/ and the Internet-Drafts
 Checklist). Boilerplate checks are not enough; this check needs to be thorough.
 
+TODO:
+
 (12) Describe how the document meets any required formal review criteria, such
 as the MIB Doctor, media type, and URI type reviews.
 
+No MIB Doctor, media type, URI type or similar apply to this document.
+
 (13) Have all references within this document been identified as either
 normative or informative?
+
+Yes.
 
 (14) Are there normative references to documents that are not ready for
 advancement or are otherwise in an unclear state? If such normative references
 exist, what is the plan for their completion?
 
+I-D.ietf-radext-ipv6-access (RFC Ed queue, AUTH48) is a normative reference.
+All other normative references are to RFC documents.
+
 (15) Are there downward normative references references (see RFC 3967)? If so,
 list these downward references to support the Area Director in the Last Call
 procedure.
+
+No.
 
 (16) Will publication of this document change the status of any existing RFCs?
 Are those RFCs listed on the title page header, listed in the abstract, and
@@ -98,6 +145,9 @@ discussed in the introduction? If the RFCs are not listed in the Abstract and
 Introduction, explain why, and point to the part of the document where the
 relationship of this document to the other RFCs is discussed. If this
 information is not in the document, explain why the WG considers it unnecessary.
+
+Q: Should this have updates 3315?
+TODO
 
 (17) Describe the Document Shepherd's review of the IANA considerations section,
 especially with regard to its consistency with the body of the document. Confirm
@@ -108,10 +158,26 @@ registries include a detailed specification of the initial contents for the
 registry, that allocations procedures for future registrations are defined, and
 a reasonable name for the new registry has been suggested (see RFC 5226).
 
+This document requests assignment of a new DHCPv6 option code. The IANA registry
+for this code is clearly identified. This document also requests creation of a
+new registry that will hold RADIUS attributes that are permitted in the RADIUS
+option. This will be a sub-set of existing RADIUS attibute types registry
+that is clearly identified (with a name and URL to IANA website).
+
+TODO: Initial content of this new registry is not specified in IANA
+considerations section.
+
 (18) List any new IANA registries that require Expert Review for future
 allocations. Provide any public guidance that the IESG would find useful in
 selecting the IANA Experts for these new registries.
 
+  This document calls for creation of a 'RADIUS Attributes Permitted in the
+  DHCPv6 RADIUS option' registry. Its name, location, process of adding new
+  values is clearly defined. -09 version do not clearly mention initial content
+  of the new registry in IANA considerations section.
+
 (19) Describe reviews and automated checks performed by the Document Shepherd to
 validate sections of the document written in a formal language, such as XML
 code, BNF rules, MIB definitions, etc.
+
+There are no such parts to the document.
