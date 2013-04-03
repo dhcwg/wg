@@ -1,6 +1,6 @@
 Document Writeup, template from IESG area on ietf.org, dated 24 February 2012.
 
-draft-ietf-dhc-dhcpv6-radius-opt-09 write-up
+draft-ietf-dhc-dhcpv6-radius-opt-10 write-up
 
 (1) What type of RFC is being requested (BCP, Proposed Standard, Internet
 Standard, Informational, Experimental, or Historic)? Why is this the proper type
@@ -56,22 +56,30 @@ Tomek Mrugalski is the document shepherd. Ted Lemon is the responsible AD.
 Document Shepherd. If this version of the document is not ready for publication,
 please explain why the document is being forwarded to the IESG.
 
-TODO
+  I thoroughly reviewed this document twice (and have other minor
+  comments in between):
+  my -09 comments: http://www.ietf.org/mail-archive/web/dhcwg/current/msg13979.html
+  my -05 comments: http://www.ietf.org/mail-archive/web/dhcwg/current/msg13529.html
+
+  The issues raised in my last review were promptly addressed by authors
+  in -10. This document is ready for publication in my opinion.
 
 (4) Does the document Shepherd have any concerns about the depth or breadth of
 the reviews that have been performed?
 
-Yes. This document is between area of expertise of 2 WGs: DHC and RADEXT. It
-was very well reviewed (detailed discussions and reviews with 55 posts total)
-in DHC. There was only one post about it in RADEXT wg.
-http://www.ietf.org/mail-archive/web/radext/current/msg07717.html
+  Yes. This document is between area of expertise of 2 WGs: DHC and RADEXT. It
+  was very well reviewed (detailed discussions and reviews with 55 posts total)
+  in DHC. There was only one post about it in RADEXT wg.
+  http://www.ietf.org/mail-archive/web/radext/current/msg07717.html
+  RADEXT chairs were requested to ask for a review on RADEXT ML.
 
 (5) Do portions of the document need review from a particular or from broader
 perspective, e.g., security, operational complexity, AAA, DNS, DHCP, XML, or
 internationalization? If so, describe the review that took place.
 
-This document has had a great deal of careful DHCP review. It did not
-get enough RADIUS review.
+  This document has had a great deal of careful DHCP review. It did not
+  get enough RADIUS review. RADEXT chairs were requested to ask for a
+  review on RADEXT ML.
 
 (6) Describe any specific concerns or issues that the Document Shepherd has with
 this document that the Responsible Area Director and/or the IESG should be aware
@@ -80,64 +88,67 @@ document, or has concerns whether there really is a need for it. In any event,
 if the WG has discussed those issues and has indicated that it still wishes to
 advance the document, detail those concerns here.
 
-TODO
+  There are no outstanding issues from the DHCP perspective.
 
 (7) Has each author confirmed that any and all appropriate IPR disclosures
 required for full conformance with the provisions of BCP 78 and BCP 79 have
 already been filed. If not, explain why?
 
-Yes, the authors, Leaf Yeh and Mohamed Boucadair, did confirm in writing that
-they are not aware of any IPR.
+  Yes, the authors, Leaf Yeh and Mohamed Boucadair, did confirm in writing that
+  they are not aware of any IPR.
 
 (8) Has an IPR disclosure been filed that references this document? If so,
 summarize any WG discussion and conclusion regarding the IPR disclosures.
 
-No.
+  No.
 
 (9) How solid is the WG consensus behind this document? Does it represent the
 strong concurrence of a few individuals, with others being silent, or does the
 WG as a whole understand and agree with it?
 
-There was very broad support for adopting this document. It was later reviewed
-couple times by 6 active WG participants. All changes were mostly minor and
-did not change the basic mechanism (that was operationally proven to work in
-DHCPv4).
+  There was very broad support for adopting this document. It was later reviewed
+  couple times by 6 active WG participants. All changes were mostly minor and
+  did not change the basic mechanism (that was operationally proven to work in
+  DHCPv4).
 
 (10) Has anyone threatened an appeal or otherwise indicated extreme discontent?
 If so, please summarise the areas of conflict in separate email messages to the
 Responsible Area Director. (It should be in a separate email because this
 questionnaire is publicly available.)
 
-No. There was unanimous support for this work and nobody raised any objections.
+  No. There was unanimous support for this work and nobody raised any objections.
 
 (11) Identify any ID nits the Document Shepherd has found in this document. (See
 http://www.ietf.org/tools/idnits/ and the Internet-Drafts
 Checklist). Boilerplate checks are not enough; this check needs to be thorough.
 
-TODO:
+  All outstanding issues were resolved in -10 version. This document is
+  now ID nits clean.
 
 (12) Describe how the document meets any required formal review criteria, such
 as the MIB Doctor, media type, and URI type reviews.
 
-No MIB Doctor, media type, URI type or similar apply to this document.
+  No MIB Doctor, media type, URI type or similar apply to this
+  document. This document did not go through AAA Doctors review. If such
+  a step is needed, please advise how can I request such a review.
 
 (13) Have all references within this document been identified as either
 normative or informative?
 
-Yes.
+  Yes.
 
 (14) Are there normative references to documents that are not ready for
 advancement or are otherwise in an unclear state? If such normative references
 exist, what is the plan for their completion?
 
-I-D.ietf-radext-ipv6-access (RFC Ed queue, AUTH48) is a normative reference.
-All other normative references are to RFC documents.
+  I-D.ietf-radext-ipv6-access (RFC Ed queue, AUTH48) is a normative reference.
+  All other normative references are to RFC documents.
 
 (15) Are there downward normative references references (see RFC 3967)? If so,
 list these downward references to support the Area Director in the Last Call
 procedure.
 
-No.
+  No.
 
 (16) Will publication of this document change the status of any existing RFCs?
 Are those RFCs listed on the title page header, listed in the abstract, and
@@ -146,8 +157,8 @@ Introduction, explain why, and point to the part of the document where the
 relationship of this document to the other RFCs is discussed. If this
 information is not in the document, explain why the WG considers it unnecessary.
 
-Q: Should this have updates 3315?
-TODO
+  No. It was discussed with co-chair and responsible AD that this
+  document extends, but do not update RFC3315 (DHCPv6).
 
 (17) Describe the Document Shepherd's review of the IANA considerations section,
 especially with regard to its consistency with the body of the document. Confirm
@@ -158,14 +169,14 @@ registries include a detailed specification of the initial contents for the
 registry, that allocations procedures for future registrations are defined, and
 a reasonable name for the new registry has been suggested (see RFC 5226).
 
-This document requests assignment of a new DHCPv6 option code. The IANA registry
-for this code is clearly identified. This document also requests creation of a
-new registry that will hold RADIUS attributes that are permitted in the RADIUS
-option. This will be a sub-set of existing RADIUS attibute types registry
-that is clearly identified (with a name and URL to IANA website).
-
-TODO: Initial content of this new registry is not specified in IANA
-considerations section.
+  This document requests assignment of a new DHCPv6 option code. The IANA registry
+  for this code is clearly identified. This document also requests creation of a
+  new registry that will hold RADIUS attributes that are permitted in the RADIUS
+  option. This will be a sub-set of existing RADIUS attibute types registry
+  that is clearly identified (with a name and URL to IANA website). The
+  initial content of the newly created registry is clearly listed in
+  section 4.1. There is a clear pointer to section 4.1 in IANA
+  considerations section.
 
 (18) List any new IANA registries that require Expert Review for future
 allocations. Provide any public guidance that the IESG would find useful in
@@ -180,4 +191,4 @@ selecting the IANA Experts for these new registries.
 validate sections of the document written in a formal language, such as XML
 code, BNF rules, MIB definitions, etc.
 
-There are no such parts to the document.
+  There are no such parts to the document.
