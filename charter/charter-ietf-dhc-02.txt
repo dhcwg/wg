@@ -7,48 +7,55 @@ is documented in RFC 2131 and RFC 2132. DHCPv6 is currently a
 document additional options and other enhancements to the
 specifications.
 
-The DHC WG is responsible for reviewing (and sometimes developing)
-DHCP options or other extensions (for both IPv4 and IPv6). The DHC WG
-is expected to review all proposed extensions to DHCP to ensure that
-they are consistent with the DHCP specification and other option
-formats, that they do not duplicate existing mechanisms, etc. The DHC
-WG will not (generally) be responsible for evaluating the semantic
-content of proposed options. The DHC WG will not adopt new proposals
-for extensions to DHCP as working group documents without first
-coordinating with other relevant working groups and determining who
-has the responsibility for reviewing the semantic content of an
-option.
+The DHC WG is responsible for reviewing DHCP options or other
+extensions (for both IPv4 and IPv6). The DHC WG is expected to review
+all proposed extensions to DHCP to ensure that they are consistent
+with the DHCP specification and other option formats, that they do not
+duplicate existing mechanisms, etc. Generally speaking, the DHC WG
+will not be responsible for evaluating the semantic content of
+proposed options. Similarly, the ownership of specifications typically
+belongs the relevant working group that needs more functionality from
+DHCP, not the DHC WG. The DHC WG coordinates reviews of the proposed
+options together with those working groups. It is required that those
+working groups have consensus to take on the work and that the work is
+within their charter. Exceptionally, with AD agreement, this same
+process can also be used for Individual Submissions originating
+outside WGs.
+
+However, the DHC WG can in some cases develop its own options that
+relate to either maintenance of existing specifications or
+improvements in the operation of the DHCP infrastructure itself.
 
 The DHC WG has the following main objectives:
 
-* Address security in DHCP
+* Develop extensions to the DHCP infrastructure as required to meet
+new applications and deployments of DHCP. The topics currently
+in development are:
 
-o Develop and document security requirements for DHCP. RFC 3118
-defines current security mechanisms for DHCPv4. Unfortunately,
-RFC 3118 has neither been implemented nor deployed to date.
-Specific issues to be considered include:
+- Subnet allocation mechanisms
+- Virtual subnet identification option
+- Option for passing DNS domain information in DHCPv6
+- DHCP relay agent assignment notification in DHCPv6
+- Option for DHCPv6 server reply sequence numbers
+- Rebinding capability for DHCPv6 Reconfigure messages
+- Behavior of layer 2 relay agents
 
-- Improved key management and scalability
+The adoption of new items requires explicit agreement from
+the AD or rechartering.
 
-- Security for messages passed between relay agents and servers
+* Write analyses of the DHCPv4 and DHCPv6 specifications,
+including RFC 2131, RFC 2132, RFC 3315 and other RFCs defining
+additional options, which identifies ambiguities, contradictory
+specifications and other obstacles to development of interoperable
+implementations. Recommend a process for resolving identified
+problems and incorporating the resolutions into the DHCP
+specification.
 
-- Threats of DoS attacks through DHCPFORCERENEW
+Secondly, advance DHCPv4 (RFC 2131 and RFC 2132) and DHCPv6 (RFC
+3315) in IETF Standards Track.
 
-- The increased usage of DHC on unsecured (e.g., wireless) and
-public LANs
-
-- The need for clients to be able to authenticate servers, without
-simultaneously requiring client authentication by the server.
-
-o Develop and document a roadmap of any new documents or protocols
-needed to meet the security requirements for DHCP
-
-* Write an analysis of the DHCP specification, including RFC 2131,
-RFC 2132 and other RFCs defining additional options, which
-identifies ambiguities, contradictory specifications and other
-obstacles to development of interoperable implementations. Recommend
-a process for resolving identified problems and incorporating the
-resolutions into the DHCP specification.
+Thirdly, specify guidelines for creating new DHCP options, and
+report on the status of DHCPv4 option reclassification.
 
 * Assess the requirements for a dual-stack host to use DHCP to obtain
 configuration settings for both IPv4 and IPv6. Hosts that include
@@ -61,16 +68,8 @@ settings for both IP stacks. The DHC WG will evaluate solutions for
 configuration of dual-stack hosts through DHCP and select a solution
 that will be developed and published by the WG.
 
-* Assess the requirements for informing DHCPv6 clients of changes in
-configuration information. The DHCPv6 specification in RFC 3315
-includes a mechanism through which clients can obtain other
-configuration information without obtaining an address or addresses.
-This mechanisms is sometimes called "stateless DHCPv6" and is
-specified in RFC 3736. RFC 3315 includes no provision for notifying
-DHCPv6 clients using stateless DHCPv6 of changes in the
-configuration information supplied to the client or any
-recommendations as to when a client should obtain possibly updated
-information. The DHC WG will evaluate solutions for informing
-DHCPv6 clients of changes in configuration information and select a
-solution that will be developed and published by the WG.
+* Hold a discussion whether on-link prefix information and default
+router information is needed in DHCP in addition to router
+advertisements. Actual solutions are out of scope for the WG,
+however.
 
