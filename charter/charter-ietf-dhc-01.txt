@@ -1,36 +1,76 @@
-Dynamic Host Configuration Working Group
-Chairpersons: Ralph Droms/UMD and Phill Gross/NRI
-CHARTER
-Description of Working Group:
-The purpose of this working group is the investigation of
-network configuration and reconfiguration management. We
-will determine those configuration functions that can be
-automated, such as Internet address assiglnment, gateway
-discovery and resource location, and that which cannot
-(i.e., those that must be managed by network
-administrators).
-Objectives:
-0 We will identify (in the spirit of the Gateway
-Requirements and Host Requirements RFCs) the
-information required for hosts and gateways to:
-a) Exchange Internet packets with other hosts (e.g.~
-discover own Internet address)..
-b) Obtain packet routing information (e.g., discover
-local gateways).
-c) Access the Domain Name System (e.g., discover
-DNS server).
-.
-o
-.
-d) Access other local and remote services.
-We will summarize those mechanisms already in place for
-managing the information identified by objective I.
-We will suggest new mechanisms to manage the
-information identified by objective i.
-Having established what information and mechanisms are
-required for host operation, we will examine specific
-scenarios of dynamic host configuration and
-reconfiguration, and show how those scenarios can be
-resolved using existing or proposed management
-mechanisms.
-Estimated Timeframe for Completion: (to be determined)
+
+The dhc working group (DHC WG) has developed DHCP for automated
+allocation, configuration and management of IP addresses and TCP/IP
+protocol stack parameters. DHCPv4 is currently a "Draft Standard" and
+is documented in RFC 2131 and RFC 2132. DHCPv6 is currently a
+"Proposed Standard" and is documented in RFC 3315. Subsequent RFCs
+document additional options and other enhancements to the
+specifications.
+
+The DHC WG is responsible for reviewing (and sometimes developing)
+DHCP options or other extensions (for both IPv4 and IPv6). The DHC WG
+is expected to review all proposed extensions to DHCP to ensure that
+they are consistent with the DHCP specification and other option
+formats, that they do not duplicate existing mechanisms, etc. The DHC
+WG will not (generally) be responsible for evaluating the semantic
+content of proposed options. The DHC WG will not adopt new proposals
+for extensions to DHCP as working group documents without first
+coordinating with other relevant working groups and determining who
+has the responsibility for reviewing the semantic content of an
+option.
+
+The DHC WG has the following main objectives:
+
+* Address security in DHCP
+
+o Develop and document security requirements for DHCP. RFC 3118
+defines current security mechanisms for DHCPv4. Unfortunately,
+RFC 3118 has neither been implemented nor deployed to date.
+Specific issues to be considered include:
+
+- Improved key management and scalability
+
+- Security for messages passed between relay agents and servers
+
+- Threats of DoS attacks through DHCPFORCERENEW
+
+- The increased usage of DHC on unsecured (e.g., wireless) and
+public LANs
+
+- The need for clients to be able to authenticate servers, without
+simultaneously requiring client authentication by the server.
+
+o Develop and document a roadmap of any new documents or protocols
+needed to meet the security requirements for DHCP
+
+* Write an analysis of the DHCP specification, including RFC 2131,
+RFC 2132 and other RFCs defining additional options, which
+identifies ambiguities, contradictory specifications and other
+obstacles to development of interoperable implementations. Recommend
+a process for resolving identified problems and incorporating the
+resolutions into the DHCP specification.
+
+* Assess the requirements for a dual-stack host to use DHCP to obtain
+configuration settings for both IPv4 and IPv6. Hosts that include
+implementations of both IPv4 and IPv6 ("dual-stack hosts") may use
+DHCP to obtain configuration settings (including assigned addresses)
+for both IPv4 and IPv6. The DHCPv4 and DHCPv6 specifications (RFC
+2131, RFC 2132, RFC 3315 and subsequent RFCs) do not explicitly
+explain how a dual-stack host uses DHCP to obtain configuration
+settings for both IP stacks. The DHC WG will evaluate solutions for
+configuration of dual-stack hosts through DHCP and select a solution
+that will be developed and published by the WG.
+
+* Assess the requirements for informing DHCPv6 clients of changes in
+configuration information. The DHCPv6 specification in RFC 3315
+includes a mechanism through which clients can obtain other
+configuration information without obtaining an address or addresses.
+This mechanisms is sometimes called "stateless DHCPv6" and is
+specified in RFC 3736. RFC 3315 includes no provision for notifying
+DHCPv6 clients using stateless DHCPv6 of changes in the
+configuration information supplied to the client or any
+recommendations as to when a client should obtain possibly updated
+information. The DHC WG will evaluate solutions for informing
+DHCPv6 clients of changes in configuration information and select a
+solution that will be developed and published by the WG.
+
