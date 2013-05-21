@@ -1,0 +1,36 @@
+Dynamic Host Configuration Working Group
+Chairpersons: Ralph Droms/UMD and Phill Gross/NRI
+CHARTER
+Description of Working Group:
+The purpose of this working group is the investigation of
+network configuration and reconfiguration management. We
+will determine those configuration functions that can be
+automated, such as Internet address assiglnment, gateway
+discovery and resource location, and that which cannot
+(i.e., those that must be managed by network
+administrators).
+Objectives:
+0 We will identify (in the spirit of the Gateway
+Requirements and Host Requirements RFCs) the
+information required for hosts and gateways to:
+a) Exchange Internet packets with other hosts (e.g.~
+discover own Internet address)..
+b) Obtain packet routing information (e.g., discover
+local gateways).
+c) Access the Domain Name System (e.g., discover
+DNS server).
+.
+o
+.
+d) Access other local and remote services.
+We will summarize those mechanisms already in place for
+managing the information identified by objective I.
+We will suggest new mechanisms to manage the
+information identified by objective i.
+Having established what information and mechanisms are
+required for host operation, we will examine specific
+scenarios of dynamic host configuration and
+reconfiguration, and show how those scenarios can be
+resolved using existing or proposed management
+mechanisms.
+Estimated Timeframe for Completion: (to be determined)
