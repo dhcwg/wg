@@ -6,57 +6,65 @@
   "Proposed Standard" and is documented in RFC 3315. Subsequent RFCs 
   document additional options and other enhancements to the 
   specifications.
-  
-  The DHC WG is responsible for reviewing DHCP options or other 
-  extensions (for both IPv4 and IPv6). The DHC WG is expected to review 
-  all proposed extensions to DHCP to ensure that they are consistent 
-  with the DHCP specification and other option formats, that they do not 
-  duplicate existing mechanisms, etc. Generally speaking, the DHC WG 
-  will not be responsible for evaluating the semantic content of 
-  proposed options. Similarly, the ownership of specifications typically 
-  belongs the relevant working group that needs more functionality from 
-  DHCP, not the DHC WG. The DHC WG coordinates reviews of the proposed 
-  options together with those working groups. It is required that those 
-  working groups have consensus to take on the work and that the work is 
-  within their charter. Exceptionally, with AD agreement, this same 
-  process can also be used for Individual Submissions originating 
-  outside WGs.
-  
+
+  The DHC WG is responsible for defining DHCPv6 protocol extensions.
+  Definition of new DHCP options that are delivered using standard
+  mechanisms is not considered a protocol extension and thus is
+  outside of scope for DHC WG. Such options should be defined within
+  their respective WGs and reviewed by DHCP Directorate.
+
   However, the DHC WG can in some cases develop its own options that 
   relate to either maintenance of existing specifications or 
   improvements in the operation of the DHCP infrastructure itself.
-  
+
+  DHCPv4 is no longer being developed and new work to extend it is outside
+  of scope, unless such work is useful from IPv4 to IPv6 transition
+  perspective.
+
   The DHC WG has the following main objectives:
   
-  * Develop extensions to the DHCP infrastructure as required to meet 
+  * Develop extensions to the DHCPv6 infrastructure as required to meet
   new applications and deployments of DHCP. The topics currently 
   in development are:
   
-  - Subnet allocation mechanisms
-  - Virtual subnet identification option
-  - Option for passing DNS domain information in DHCPv6
-  - DHCP relay agent assignment notification in DHCPv6
-  - Option for DHCPv6 server reply sequence numbers
-  - Rebinding capability for DHCPv6 Reconfigure messages
-  - Behavior of layer 2 relay agents
-  
+  - DHCPv6 Failover, High Availability and Load Balancing
+  - DNS Update strategies for delegated prefixes
+  - Extend DHCPv6 to work with multiple provisioning domains
+  - Provisioning for IPv6 migration technologies
+  - ... (tomek: add whatever else we have currently adopted)
+
+  (tomek: do we want to add registration service here? I think it was
+  Suresh who said that they'll ask v6ops if DHCP is the right protocol
+  to do registration.)
+
+  (tomek: this is a leftover from -06. We should remove this sentence.
+   It means we'd violate the charter every time we adopt something or
+   need to bug Ted every time.)
   The adoption of new items requires explicit agreement from 
   the AD or rechartering.
-  
-  * Write analyses of the DHCPv4 and DHCPv6 specifications, 
-  including RFC 2131, RFC 2132, RFC 3315 and other RFCs defining 
+
+  * advance DHCPv6 (RFC 3315) in IETF Standards Track.
+
+  * specify guidelines for creating new DHCPv6 options.
+
+  (tomek: I removed DHCPv4 from here. On one hand analysis for DHCPv4
+  is mostly useless at this time, unless it deals with v6 transition.
+  I don't have any specific preference here - I'm ok if you prefer
+  to put DHCPv4 back here)
+  * Write analyses of the DHCPv6 specifications,
+  including RFC 3315, RFC3633, RFC3736 and other RFCs defining
   additional options, which identifies ambiguities, contradictory 
   specifications and other obstacles to development of interoperable 
   implementations. Recommend a process for resolving identified 
   problems and incorporating the resolutions into the DHCP 
   specification.
-  
-  Secondly, advance DHCPv4 (RFC 2131 and RFC 2132) and DHCPv6 (RFC 
-  3315) in IETF Standards Track.
-  
-  Thirdly, specify guidelines for creating new DHCP options, and 
-  report on the status of DHCPv4 option reclassification. 
-  
+
+  (tomek: what about this one? the v4 and v6 clients matching is
+  an unsolved problem, especially when dealing with DHCID record in
+  DDNS. DUID idenifiers were later added to DHCPv4, but they are not
+  commonly used yet. Perhaps we could leve this text and see if there
+  is anyone willing to work on such a document?)
+
   * Assess the requirements for a dual-stack host to use DHCP to obtain 
   configuration settings for both IPv4 and IPv6. Hosts that include 
   implementations of both IPv4 and IPv6 ("dual-stack hosts") may use 
@@ -68,6 +76,9 @@
   configuration of dual-stack hosts through DHCP and select a solution 
   that will be developed and published by the WG.
   
+  (Tomek: this was in -06 charter. I think we should remove it. In
+  case we decide to keep it, we need at least clarify that it is
+  about IPv6/DHCPv6)
   * Hold a discussion whether on-link prefix information and default 
   router information is needed in DHCP in addition to router 
   advertisements. Actual solutions are out of scope for the WG, 
