@@ -1,4 +1,3 @@
-
   The dhc working group (DHC WG) has developed DHCP for automated 
   allocation, configuration and management of IP addresses and TCP/IP 
   protocol stack parameters. DHCPv4 is currently a "Draft Standard" and 
@@ -9,17 +8,22 @@
 
   The DHC WG is responsible for defining DHCPv6 protocol extensions.
   Definition of new DHCP options that are delivered using standard
-  mechanisms is not considered a protocol extension and thus is
+  mechanisms are not considered a protocol extension and thus are
   outside of scope for DHC WG. Such options should be defined within
-  their respective WGs and reviewed by DHCP Directorate.
+  their respective WGs and reviewed by the DHCP Directorate.
 
-  However, the DHC WG can in some cases develop its own options that 
-  relate to either maintenance of existing specifications or 
-  improvements in the operation of the DHCP infrastructure itself.
+  However, the DHC WG may develop its own options that relate to 
+  either maintenance of existing specifications or improvements in 
+  the operation of the DHCP infrastructure itself.
 
-  DHCPv4 is no longer being developed and new work to extend it is outside
-  of scope, unless such work is useful from IPv4 to IPv6 transition
-  perspective.
+  DHCPv4 is no longer being developed and new work to extend it is 
+  outside of scope, unless such work is useful from the IPv4 to IPv6 
+  transition perspective.
+  
+  (bernie: the above is written a bit oddly compared to the other
+  paragraphs. How about:
+  The DHC WG will only work on DHCPv4 when it is useful to support
+  transitioning from IPv4 to IPv6.)
 
   The DHC WG has the following main objectives:
   
@@ -35,22 +39,23 @@
 
   (tomek: do we want to add registration service here? I think it was
   Suresh who said that they'll ask v6ops if DHCP is the right protocol
-  to do registration.)
+  to do registration. bernie: i think it best to leave off for now.)
 
   (tomek: this is a leftover from -06. We should remove this sentence.
    It means we'd violate the charter every time we adopt something or
-   need to bug Ted every time.)
+   need to bug Ted every time. bernie: i think this is pretty standard?)
   The adoption of new items requires explicit agreement from 
   the AD or rechartering.
 
-  * advance DHCPv6 (RFC 3315) in IETF Standards Track.
+  * advance DHCPv6 (RFC 3315) along the IETF Standards Track.
 
   * specify guidelines for creating new DHCPv6 options.
 
   (tomek: I removed DHCPv4 from here. On one hand analysis for DHCPv4
   is mostly useless at this time, unless it deals with v6 transition.
   I don't have any specific preference here - I'm ok if you prefer
-  to put DHCPv4 back here)
+  to put DHCPv4 back here. bernie: ok by me.)
+
   * Write analyses of the DHCPv6 specifications,
   including RFC 3315, RFC3633, RFC3736 and other RFCs defining
   additional options, which identifies ambiguities, contradictory 
@@ -62,7 +67,7 @@
   (tomek: what about this one? the v4 and v6 clients matching is
   an unsolved problem, especially when dealing with DHCID record in
   DDNS. DUID idenifiers were later added to DHCPv4, but they are not
-  commonly used yet. Perhaps we could leve this text and see if there
+  commonly used yet. Perhaps we could leave this text and see if there
   is anyone willing to work on such a document?)
 
   * Assess the requirements for a dual-stack host to use DHCP to obtain 
@@ -78,7 +83,11 @@
   
   (Tomek: this was in -06 charter. I think we should remove it. In
   case we decide to keep it, we need at least clarify that it is
-  about IPv6/DHCPv6)
+  about IPv6/DHCPv6. Bernie: holding a discussion seems like a pretty
+  open ended work item? What is the goal? Determine if needed? Who or
+  how would action be taken if we held this discussion and determined
+  it was needed? Is this a v6ops or 6man task? Why do we think we are
+  better qualified to handle this, rather than v6ops or 6man?)
   * Hold a discussion whether on-link prefix information and default 
   router information is needed in DHCP in addition to router 
   advertisements. Actual solutions are out of scope for the WG, 
