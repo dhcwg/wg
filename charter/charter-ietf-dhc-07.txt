@@ -32,18 +32,15 @@
   - SOLMAXRT counter update
   - Container option
   - Address Network Identifier
+  
+  (bernie: - There is also the 'address registration' proposals.
+  But based on Orlando meeting, this is best taken to v6ops to
+  determine what right protocols are for registration. We MAY want
+  to add the DNS update piece (i.e., provide means for clients to
+  have DHCP server register stateless names), but that is also
+  unclear as why doesn't client just do DHCPv6 in first place.)
 
-  (tomek: do we want to add registration service here? I think it was
-  Suresh who said that they'll ask v6ops if DHCP is the right protocol
-  to do registration. bernie: i think it best to leave off for now.)
-
-  (tomek: this is a leftover from -06. We should remove this sentence.
-   It means we'd violate the charter every time we adopt something or
-   need to bug Ted every time. bernie: i think this is pretty standard?)
-  (removed: The adoption of new items requires explicit agreement from 
-  the AD or rechartering.)
-
-  * develop documents that help explains operational considerations
+  * develop documents that help explain operational considerations
     for the wider community
   (tomek: Ted's topo-conf, dhc-inventory and other similar drafts)
 
@@ -80,7 +77,6 @@
   advertisements. Actual solutions are out of scope for the WG, 
   however.)
   (both Bernie and Tomek agreed to not have it in DHC.)
-
   (Tomek: this was in -06 charter. I think we should remove it. In
   case we decide to keep it, we need at least clarify that it is
   about IPv6/DHCPv6. Bernie: holding a discussion seems like a pretty
