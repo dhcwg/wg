@@ -16,14 +16,8 @@
   either maintenance of existing specifications or improvements in 
   the operation of the DHCP infrastructure itself.
 
-  DHCPv4 is no longer being developed and new work to extend it is 
-  outside of scope, unless such work is useful from the IPv4 to IPv6 
-  transition perspective.
-  
-  (bernie: the above is written a bit oddly compared to the other
-  paragraphs. How about:
   The DHC WG will only work on DHCPv4 when it is useful to support
-  transitioning from IPv4 to IPv6.)
+  transitioning from IPv4 to IPv6.
 
   The DHC WG has the following main objectives:
   
@@ -35,7 +29,9 @@
   - DNS Update strategies for delegated prefixes
   - Extend DHCPv6 to work with multiple provisioning domains
   - Provisioning for IPv6 migration technologies
-  - ... (tomek: add whatever else we have currently adopted)
+  - SOLMAXRT counter update
+  - Container option
+  - Address Network Identifier
 
   (tomek: do we want to add registration service here? I think it was
   Suresh who said that they'll ask v6ops if DHCP is the right protocol
@@ -44,32 +40,24 @@
   (tomek: this is a leftover from -06. We should remove this sentence.
    It means we'd violate the charter every time we adopt something or
    need to bug Ted every time. bernie: i think this is pretty standard?)
-  The adoption of new items requires explicit agreement from 
-  the AD or rechartering.
+  (removed: The adoption of new items requires explicit agreement from 
+  the AD or rechartering.)
 
-  * advance DHCPv6 (RFC 3315) along the IETF Standards Track.
+  * develop documents that help explains operational considerations
+    for the wider community
+  (tomek: Ted's topo-conf, dhc-inventory and other similar drafts)
+
+  * advance DHCPv6 (RFC 3315) along the IETF Standards Track, write
+  analyses of the DHCPv6 specifications, including RFC 3315, RFC3633,
+  RFC3736 and other RFCs defining additional options, which identifies
+  ambiguities, contradictory specifications and other obstacles to
+  development of interoperable implementations. Recommend a process
+  for resolving identified problems and incorporating the resolutions
+  into the DHCP specification.
 
   * specify guidelines for creating new DHCPv6 options.
 
-  (tomek: I removed DHCPv4 from here. On one hand analysis for DHCPv4
-  is mostly useless at this time, unless it deals with v6 transition.
-  I don't have any specific preference here - I'm ok if you prefer
-  to put DHCPv4 back here. bernie: ok by me.)
-
-  * Write analyses of the DHCPv6 specifications,
-  including RFC 3315, RFC3633, RFC3736 and other RFCs defining
-  additional options, which identifies ambiguities, contradictory 
-  specifications and other obstacles to development of interoperable 
-  implementations. Recommend a process for resolving identified 
-  problems and incorporating the resolutions into the DHCP 
-  specification.
-
-  (tomek: what about this one? the v4 and v6 clients matching is
-  an unsolved problem, especially when dealing with DHCID record in
-  DDNS. DUID idenifiers were later added to DHCPv4, but they are not
-  commonly used yet. Perhaps we could leave this text and see if there
-  is anyone willing to work on such a document?)
-
+  (to be removed:
   * Assess the requirements for a dual-stack host to use DHCP to obtain 
   configuration settings for both IPv4 and IPv6. Hosts that include 
   implementations of both IPv4 and IPv6 ("dual-stack hosts") may use 
@@ -79,8 +67,20 @@
   explain how a dual-stack host uses DHCP to obtain configuration 
   settings for both IP stacks. The DHC WG will evaluate solutions for 
   configuration of dual-stack hosts through DHCP and select a solution 
-  that will be developed and published by the WG.
-  
+  that will be developed and published by the WG.)
+  (Bernie: let's remove it, tomek: on the fence)
+  (tomek: what about this one? the v4 and v6 clients matching is
+  an unsolved problem, especially when dealing with DHCID record in
+  DDNS. DUID idenifiers were later added to DHCPv4, but they are not
+  commonly used yet. Perhaps we could leave this text and see if there
+  is anyone willing to work on such a document?)
+
+  (removed:* Hold a discussion whether on-link prefix information and default 
+  router information is needed in DHCP in addition to router 
+  advertisements. Actual solutions are out of scope for the WG, 
+  however.)
+  (both Bernie and Tomek agreed to not have it in DHC.)
+
   (Tomek: this was in -06 charter. I think we should remove it. In
   case we decide to keep it, we need at least clarify that it is
   about IPv6/DHCPv6. Bernie: holding a discussion seems like a pretty
@@ -88,9 +88,5 @@
   how would action be taken if we held this discussion and determined
   it was needed? Is this a v6ops or 6man task? Why do we think we are
   better qualified to handle this, rather than v6ops or 6man?)
-  * Hold a discussion whether on-link prefix information and default 
-  router information is needed in DHCP in addition to router 
-  advertisements. Actual solutions are out of scope for the WG, 
-  however.
   
 
