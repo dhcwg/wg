@@ -34,7 +34,7 @@
   - Prefix coloring (draft-bhandari-dhc-class-based-prefix)
 
   Additional topics may only be added with approval from the responsible
-  Area Director or by recharting.
+  Area Director or by rechartering.
 
   * Specify guidelines for creating new DHCPv6 options.
 
