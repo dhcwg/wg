@@ -6,15 +6,13 @@
   document additional options and other enhancements to the 
   specifications.
 
-  The DHC WG is responsible for defining DHCPv6 protocol extensions.
+  The DHC WG is responsible for defining DHCP protocol extensions.
   Definition of new DHCP options that are delivered using standard
   mechanisms are not considered a protocol extension and thus are
   outside of scope for DHC WG. Such options should be defined within
-  their respective WGs and reviewed by the DHCP Directorate.
-
-  However, the DHC WG may develop its own options that relate to 
-  either maintenance of existing specifications or improvements in 
-  the operation of the DHCP infrastructure itself.
+  their respective WGs and reviewed by the DHCP Directorate. However,
+  if such options require protocol extensions, the protocol extension
+  work must be done in the DHC WG.
 
   The DHC WG will only work on DHCPv4 when it is useful to support
   transitioning from IPv4 to IPv6.
@@ -26,63 +24,26 @@
   in development are:
   
   - DHCPv6 Failover, High Availability and Load Balancing
-  - DNS Update strategies for delegated prefixes
+  - DNS Update strategies for delegated prefixes (draft-ietf-dhc-dns-pd)
   - Extend DHCPv6 to work with multiple provisioning domains
-  - Provisioning for IPv6 migration technologies
+  - DHCP provisioning of IPv4 clients over IPv6 networks
   - SOLMAXRT counter update
-  - Container option
-  - Address Network Identifier
-  
-  (bernie: - There is also the 'address registration' proposals.
-  But based on Orlando meeting, this is best taken to v6ops to
-  determine what right protocols are for registration. We MAY want
-  to add the DNS update piece (i.e., provide means for clients to
-  have DHCP server register stateless names), but that is also
-  unclear as why doesn't client just do DHCPv6 in first place.)
+  - Container option 
+  - Address Network Identifier (draft-ietf-dhc-access-network-identifier)
+  - New NTP option to replace OPTION_NTP_SERVER (RFC 5908)
+  - Prefix coloring (draft-bhandari-dhc-class-based-prefix)
 
-  * develop documents that help explain operational considerations
-    for the wider community
-  (tomek: Ted's topo-conf, dhc-inventory and other similar drafts)
+  Additional topics may only be added with approval from the responsible
+  Area Director or by recharting.
 
-  * advance DHCPv6 (RFC 3315) along the IETF Standards Track, write
-  analyses of the DHCPv6 specifications, including RFC 3315, RFC3633,
-  RFC3736 and other RFCs defining additional options, which identifies
-  ambiguities, contradictory specifications and other obstacles to
-  development of interoperable implementations. Recommend a process
-  for resolving identified problems and incorporating the resolutions
-  into the DHCP specification.
+  * Specify guidelines for creating new DHCPv6 options.
 
-  * specify guidelines for creating new DHCPv6 options.
+  * Develop documents that help explain operational considerations for
+    the wider community.
 
-  (to be removed:
-  * Assess the requirements for a dual-stack host to use DHCP to obtain 
-  configuration settings for both IPv4 and IPv6. Hosts that include 
-  implementations of both IPv4 and IPv6 ("dual-stack hosts") may use 
-  DHCP to obtain configuration settings (including assigned addresses) 
-  for both IPv4 and IPv6. The DHCPv4 and DHCPv6 specifications (RFC 
-  2131, RFC 2132, RFC 3315 and subsequent RFCs) do not explicitly 
-  explain how a dual-stack host uses DHCP to obtain configuration 
-  settings for both IP stacks. The DHC WG will evaluate solutions for 
-  configuration of dual-stack hosts through DHCP and select a solution 
-  that will be developed and published by the WG.)
-  (Bernie: let's remove it, tomek: on the fence)
-  (tomek: what about this one? the v4 and v6 clients matching is
-  an unsolved problem, especially when dealing with DHCID record in
-  DDNS. DUID idenifiers were later added to DHCPv4, but they are not
-  commonly used yet. Perhaps we could leave this text and see if there
-  is anyone willing to work on such a document?)
-
-  (removed:* Hold a discussion whether on-link prefix information and default 
-  router information is needed in DHCP in addition to router 
-  advertisements. Actual solutions are out of scope for the WG, 
-  however.)
-  (both Bernie and Tomek agreed to not have it in DHC.)
-  (Tomek: this was in -06 charter. I think we should remove it. In
-  case we decide to keep it, we need at least clarify that it is
-  about IPv6/DHCPv6. Bernie: holding a discussion seems like a pretty
-  open ended work item? What is the goal? Determine if needed? Who or
-  how would action be taken if we held this discussion and determined
-  it was needed? Is this a v6ops or 6man task? Why do we think we are
-  better qualified to handle this, rather than v6ops or 6man?)
-  
-
+  * Advance DHCPv6 (RFC 3315) along the IETF Standards Track. This will
+  include writing analyses, corrections, and clarification of the DHCPv6
+  specifications, including RFC 3315, RFC3633, RFC3736 and other RFCs
+  defining additional options, which identifies ambiguities,
+  contradictory specifications and other obstacles to development of
+  interoperable implementations.
