@@ -1,10 +1,10 @@
-  The dhc working group (DHC WG) has developed DHCP for automated 
-  allocation, configuration and management of IP addresses and TCP/IP 
-  protocol stack parameters. DHCPv4 is currently a "Draft Standard" and 
-  is documented in RFC 2131 and RFC 2132. DHCPv6 is currently a 
-  "Proposed Standard" and is documented in RFC 3315. Subsequent RFCs 
-  document additional options and other enhancements to the 
-  specifications.
+  The dynamic host configuration working group (DHC WG) has developed
+  DHCP for automated allocation, configuration and management of IP
+  addresses and TCP/IP protocol stack parameters. DHCPv4 is currently
+  a "Draft Standard" and is documented in RFC 2131 and RFC 2132. DHCPv6
+  is currently a "Proposed Standard" and is documented in RFC 3315.
+  Subsequent RFCs document additional options and other enhancements to
+  the specifications.
 
   The DHC WG is responsible for defining DHCP protocol extensions.
   Definition of new DHCP options that are delivered using standard
@@ -13,9 +13,6 @@
   their respective WGs and reviewed by the DHCP Directorate. However,
   if such options require protocol extensions, the protocol extension
   work must be done in the DHC WG.
-
-  The DHC WG will only work on DHCPv4 when it is useful to support
-  transitioning from IPv4 to IPv6.
 
   The DHC WG has the following main objectives:
   
@@ -42,8 +39,8 @@
     the wider community.
 
   * Advance DHCPv6 (RFC 3315) along the IETF Standards Track. This will
-  include writing analyses, corrections, and clarification of the DHCPv6
+  include writing analyses, corrections, and clarifications of the DHCPv6
   specifications, including RFC 3315, RFC3633, RFC3736 and other RFCs
-  defining additional options, which identifies ambiguities,
+  defining additional options, which identifies and resolves ambiguities,
   contradictory specifications and other obstacles to development of
   interoperable implementations.
