@@ -1,18 +1,18 @@
-  The dynamic host configuration working group (DHC WG) has developed
+  The Dynamic Host Configuration working group (DHC WG) has developed
   DHCP for automated allocation, configuration and management of IP
   addresses and TCP/IP protocol stack parameters. DHCPv4 is currently
-  a "Draft Standard" and is documented in RFC 2131 and RFC 2132. DHCPv6
-  is currently a "Proposed Standard" and is documented in RFC 3315.
+  a Draft Standard and is documented in RFC 2131 and RFC 2132. DHCPv6
+  is currently a Proposed Standard and is documented in RFC 3315.
   Subsequent RFCs document additional options and other enhancements to
   the specifications.
 
   The DHC WG is responsible for defining DHCP protocol extensions.
-  Definition of new DHCP options that are delivered using standard
-  mechanisms are not considered a protocol extension and thus are
-  outside of scope for DHC WG. Such options should be defined within
-  their respective WGs and reviewed by the DHCP Directorate. However,
-  if such options require protocol extensions, the protocol extension
-  work must be done in the DHC WG.
+  Definitions of new DHCP options that are delivered using standard
+  mechanisms with documented semantics are not considered a protocol
+  extension and thus are outside of scope for DHC WG. Such options should
+  be defined within their respective WGs and reviewed by the DHCP Directorate.
+  However, if such options require protocol extensions or new semantics, the
+  protocol extension work must be done in the DHC WG.
 
   The DHC WG has the following main objectives:
   
@@ -30,8 +30,8 @@
   - New NTP option to replace OPTION_NTP_SERVER (RFC 5908)
   - Prefix coloring (draft-bhandari-dhc-class-based-prefix)
 
-  Additional topics may only be added with approval from the responsible
-  Area Director or by rechartering.
+    Additional topics may only be added with approval from the responsible
+    Area Director or by rechartering.
 
   * Specify guidelines for creating new DHCPv6 options.
 
