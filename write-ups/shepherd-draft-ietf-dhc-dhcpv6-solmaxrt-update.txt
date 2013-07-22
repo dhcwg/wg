@@ -32,11 +32,14 @@ Working Group Summary
   before it was quickly adopted. There was never any controversy
   regarding usefulness of this work. There was never any oposition
   or alternatives to this work. WGLC passed with couple technical
-  improvements suggested.
+  improvements suggested. This work was requested by v6ops WG.
+  Several of the folks voicing their support during WGLC are not
+  active in DHC, so I assume that they are form v6ops. In my opinion
+  this proposal has concensus to move forward in both dhc and v6ops.
 
 Document Quality
 
-  There are not existing implementations, but this work is expected
+  There are no existing implementations, but this work is expected
   to be implemented quickly as it has strong support from v6ops WG
   (that need it for their CPE requirements bis aka RFC6204bis).
   No external requirements are needed as this work is purely DHCPv6
@@ -74,10 +77,10 @@ broader perspective, e.g., security, operational complexity, AAA, DNS,
 DHCP, XML, or internationalization? If so, describe the review that
 took place.
 
-  No such review was needed. There is on going process to create
-  DHCP Directorate, but it does not exist yet. Nevertheless, this
-  draft is now compliant with the primary document that will be used
-  by the directorate: draft-ietf-dhc-option-guidelines.
+  No such review was needed. There is on going process to create DHCP
+  Directorate, but the directorate does not exist yet. Nevertheless,
+  this draft is now compliant with the primary document that will be
+  used by the directorate: draft-ietf-dhc-option-guidelines.
 
 (6) Describe any specific concerns or issues that the Document Shepherd
 has with this document that the Responsible Area Director and/or the
@@ -96,7 +99,9 @@ concerns here.
 disclosures required for full conformance with the provisions of BCP 78
 and BCP 79 have already been filed. If not, explain why.
 
-  Waiting for Ralph's response on this one.
+  There are no IPR disclosed so far. Ralph Droms, the sole author,
+  confirmed in writing that he is not aware of any outstanding,
+  undisclosed IPRs.
 
 (8) Has an IPR disclosure been filed that references this document?
 If so, summarize any WG discussion and conclusion regarding the IPR
@@ -109,7 +114,7 @@ represent the strong concurrence of a few individuals, with others
 being silent, or does the WG as a whole understand and agree with it?
 
   It has very strong concensus for this work going forward. Besides
-  the regular DHC experts, during WGLC that was a number of comments
+  the regular DHC experts, during WGLC thare was a number of comments
   received from people from v6ops who typically are not active in DHC.
   That only emphasizes both internal (DHC) and external (v6ops)
   support for this work.
