@@ -1,0 +1,217 @@
+Write-up for draft-ietf-dhc-v4configuration-04
+
+Changes are expected over time. This version is dated 24 February
+2012.
+
+(1) What type of RFC is being requested (BCP, Proposed Standard,
+Internet Standard, Informational, Experimental, or Historic)? Why is
+this the proper type of RFC? Is this type of RFC indicated in the
+title page header?
+
+  Informational, as clearly indicated in the title page header.
+  This is the proper type.
+
+(2) The IESG approval announcement includes a Document Announcement
+Write-Up. Please provide such a Document Announcement Write-Up. Recent
+examples can be found in the "Action" announcements for approved
+documents. The approval announcement contains the following sections:
+
+Technical Summary:
+
+  As IPv6 becomes more widely adopted, some service providers are
+  choosing to deploy IPv6 only networks without dual-stack
+  functionality for IPv4.  However, as access to IPv4 based services
+  will continue to be a requirement for the foreseeable future, IPv4
+  over IPv6 mechanisms, such as softwire tunnels are being developed.
+
+  In order to provision end-user's hosts with the IPv4 configuration
+  necessary for such mechanisms, a number of different approaches have
+  been proposed.  This memo discusses each of the proposals, identifies
+  the benefits and drawbacks and recommends a solution as the
+  basis for future deployment and development.
+
+Working Group Summary:
+
+Was there anything in WG process that is worth noting? For example,
+was there controversy about particular points or were there decisions
+where the consensus was particularly rough?
+
+  This document is a DHC WG attempt to answer a long standing question
+  on how to configure IPv4 nodes in IPv6-only network. This discussion
+  started several years ago in Softwires, but couldn't make much
+  progress due to lack of consensus. The initial couple months of
+  discussions in DHC were very heated with multitude of approaches being
+  discussed and strong opinions exchanged. The last two IETF meetings
+  and follow-up discussions showed covergence on the favored way
+  forward: DHCPv4-over-DHCPv6. Ole Troan insisted that his proposal of
+  native DHCPv4 can be run over Softwires, but there were doubts if this
+  solution is feasible in general case. As a result, the -04 version was
+  essentially worded as "Use native DHCPv4 if possible, if not, use
+  DHCPv4-over-DHCPv6". During WGLC a number of comments were received,
+  with changes being suggested.
+
+[TODO: describe -05 once it is published]
+
+Softwire WG expects this document
+
+Document Quality:
+
+Are there existing implementations of the protocol? Have a significant
+number of vendors indicated their plan to implement the specification?
+Are there any reviewers that merit special mention as having done a
+thorough review, e.g., one that resulted in important changes or a
+conclusion that the document had no substantive issues? If there was a
+MIB Doctor, Media Type or other expert review, what was its course
+(briefly)? In the case of a Media Type review, on what date was the
+request posted?
+
+  This is a recommendation document, so there are no direct
+  implementations. However, it compares several protocol proposals and
+  the fact of existence (or lack of thereof) for each compared solutions
+  is noted. There are no special expert reviews (MIB Doctor, Media Type,
+  etc.) needed.
+
+Personnel:
+
+Who is the Document Shepherd? Who is the Responsible Area Director?
+
+  Tomek Mrugalski is the Document Shepherd.
+  Ted Lemon is Responsible Aread Director.
+
+(3) Briefly describe the review of this document that was performed by
+the Document Shepherd. If this version of the document is not ready
+for publication, please explain why the document is being forwarded to
+the IESG.
+
+  I have reviewed this document twice and participated in several
+  off-the list discussions:
+  http://www.ietf.org/mail-archive/web/dhcwg/current/msg13799.html
+  http://www.ietf.org/mail-archive/web/dhcwg/current/msg15268.html
+
+  This document is ready in my opinion for the IESG.
+
+(4) Does the document Shepherd have any concerns about the depth or
+breadth of the reviews that have been performed?
+
+  No. There were 143 mails sent to DHC ML about this draft. It was
+  extensively discussed on several meetings. Various concepts were also
+  previously discussed in Softwires. The strong consensus in DHC is to
+  wrap up the discussion and do not continue it further.
+
+(5) Do portions of the document need review from a particular or from
+broader perspective, e.g., security, operational complexity, AAA, DNS,
+DHCP, XML, or internationalization? If so, describe the review that
+took place.
+
+  There are no such sections. The whole document is about DHCP, hence
+  the DHC WG is proper place for it. People from Softwires were
+  participating in this discussion.
+
+(6) Describe any specific concerns or issues that the Document
+Shepherd has with this document that the Responsible Area Director
+and/or the IESG should be aware of? For example, perhaps he or she is
+uncomfortable with certain parts of the document, or has concerns
+whether there really is a need for it. In any event, if the WG has
+discussed those issues and has indicated that it still wishes to
+advance the document, detail those concerns here.
+
+(7) Has each author confirmed that any and all appropriate IPR
+disclosures required for full conformance with the provisions of BCP
+78 and BCP 79 have already been filed. If not, explain why?
+
+  in progresss
+
+(8) Has an IPR disclosure been filed that references this document? If
+so, summarize any WG discussion and conclusion regarding the IPR
+disclosures.
+
+  There are no IPR disclosures.
+
+(9) How solid is the WG consensus behind this document? Does it
+represent the strong concurrence of a few individuals, with others
+being silent, or does the WG as a whole understand and agree with it?
+
+  The -02 version was presented during Vancouver. The question was
+  asked whether WG wants to reopen the discussion about recommendation
+  make. The answer was that the previously reached consensus still
+  stands. There was noone in the room who opposed that.
+
+(10) Has anyone threatened an appeal or otherwise indicated extreme
+discontent? If so, please summarise the areas of conflict in separate
+email messages to the Responsible Area Director. (It should be in a
+separate email because this questionnaire is publicly available.)
+
+Yes. During WGLC of the related draft (draft-ietf-dhc-dhcpv4-over-dhpv6)
+the discussion disgressed into v4configuration conclusion:
+http://www.ietf.org/mail-archive/web/dhcwg/current/msg15076.html
+
+Several steps were taken to mitigate that objection. In particular,
+v4configuration draft was changed from "use DHCPv4-over-DHCPv6" to
+"Use native DHCPv4, if possible. If not, use DHCPv4-over-DHCPv6".
+Ole said that -04 "looks a lot better.":
+http://www.ietf.org/mail-archive/web/dhcwg/current/msg15179.html
+
+(11) Identify any ID nits the Document Shepherd has found in this
+document. (See http://www.ietf.org/tools/idnits/ and the
+Internet-Drafts Checklist). Boilerplate checks are not enough; this
+check needs to be thorough.
+
+(12) Describe how the document meets any required formal review
+criteria, such as the MIB Doctor, media type, and URI type reviews.
+
+  No such review is needed.
+
+(13) Have all references within this document been identified as
+either normative or informative?
+
+  Yes.
+
+(14) Are there normative references to documents that are not ready
+for advancement or are otherwise in an unclear state? If such
+normative references exist, what is the plan for their completion?
+
+  No.
+
+(15) Are there downward normative references references (see RFC
+3967)? If so, list these downward references to support the Area
+Director in the Last Call procedure.
+
+  No.
+
+(16) Will publication of this document change the status of any
+existing RFCs? Are those RFCs listed on the title page header, listed
+in the abstract, and discussed in the introduction? If the RFCs are
+not listed in the Abstract and Introduction, explain why, and point to
+the part of the document where the relationship of this document to
+the other RFCs is discussed. If this information is not in the
+document, explain why the WG considers it unnecessary.
+
+  No. This is an informational document that does not update or
+  obsolete anything.
+
+(17) Describe the Document Shepherd's review of the IANA
+considerations section, especially with regard to its consistency with
+the body of the document. Confirm that all protocol extensions that
+the document makes are associated with the appropriate reservations in
+IANA registries. Confirm that any referenced IANA registries have been
+clearly identified. Confirm that newly created IANA registries include
+a detailed specification of the initial contents for the registry,
+that allocations procedures for future registrations are defined, and
+a reasonable name for the new registry has been suggested (see RFC
+5226).
+
+  This is informative document, so there are no IANA actions. There
+  is a boilerplate IANA section that clearly states that no actions
+  are requested.
+
+(18) List any new IANA registries that require Expert Review for
+future allocations. Provide any public guidance that the IESG would
+find useful in selecting the IANA Experts for these new registries.
+
+  There are none.
+
+(19) Describe reviews and automated checks performed by the Document
+Shepherd to validate sections of the document written in a formal
+language, such as XML code, BNF rules, MIB definitions, etc.
+
+  No such sections in the draft, hence no review needed.
