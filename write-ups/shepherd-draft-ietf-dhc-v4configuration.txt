@@ -93,10 +93,23 @@ the IESG.
 (4) Does the document Shepherd have any concerns about the depth or
 breadth of the reviews that have been performed?
 
-  No. There were 143 mails sent to DHC ML about this draft. It was
-  extensively discussed on several meetings. Various concepts were also
-  previously discussed in Softwires. The strong consensus in DHC is to
-  wrap up the discussion and do not continue it further.
+  No. There were 143 mails sent to DHC ML about this draft. Much more
+  if we count prior discussions in Softwires and related discussions
+  in DHC (mostly about DHCPv4-over-DHCPv6 and its predecessor DHCPv4-
+  over-IPv6). It was extensively discussed on several meetings. Various
+  concepts were also previously discussed in Softwires. The strong
+  consensus in DHC is to wrap up the discussion and do not continue
+  it any further.
+
+  Although this document is DHC specific, it touches some topics
+  from Softwires. In fact, its creation is a result of a request
+  from Softwires to answer the question on how to do DHCPv4 in
+  IPv6-only networks. It should be noted that many key players
+  (Ole Troan, Ian Farrer, Suresh Krishnan, Simon Perreault)
+  from Softwires were actively involved in this discussion.
+
+  This document was also presented in a joint Sunset4/DHC session in
+  Berlin, where it received favorable responses.
 
 (5) Do portions of the document need review from a particular or from
 broader perspective, e.g., security, operational complexity, AAA, DNS,
@@ -115,11 +128,28 @@ whether there really is a need for it. In any event, if the WG has
 discussed those issues and has indicated that it still wishes to
 advance the document, detail those concerns here.
 
+  This is not a concern, but rather an observation. This document tries
+  to make a decision about selecting one DHCP solution. This results
+  in all other alternatives being deprecated. This may be disappointing
+  for those who were involved in those alternatives.
+
+  One comment that remains unaddressed was raised by Ole Troan:
+  http://www.ietf.org/mail-archive/web/dhcwg/current/msg15190.html
+  He suggested that the bullet 7 in Section 2 ("Not restricted to
+  specific IPv4 over IPv6 transport mechanisms or architectures.")
+  should be removed. That is in direct contradition to what chairs,
+  authors and Ted Lemon (responsible AD) thinks. Our strong belief
+  is that the solution should be as generic as possible and not tied
+  to specific existing transition technologies, if possible.
+  Therefore Ole's comment was not addressed.
+
 (7) Has each author confirmed that any and all appropriate IPR
 disclosures required for full conformance with the provisions of BCP
 78 and BCP 79 have already been filed. If not, explain why?
 
-  in progresss
+  Both authors confirmed in writing that they are not aware of any
+  IPR claims. As a side note, such claims are unlikely to ever appear
+  as this is a comparative document that evaluates other proposals.
 
 (8) Has an IPR disclosure been filed that references this document? If
 so, summarize any WG discussion and conclusion regarding the IPR
@@ -141,20 +171,22 @@ discontent? If so, please summarise the areas of conflict in separate
 email messages to the Responsible Area Director. (It should be in a
 separate email because this questionnaire is publicly available.)
 
-Yes. During WGLC of the related draft (draft-ietf-dhc-dhcpv4-over-dhpv6)
-the discussion disgressed into v4configuration conclusion:
-http://www.ietf.org/mail-archive/web/dhcwg/current/msg15076.html
+  Yes. During WGLC of the related draft (draft-ietf-dhc-dhcpv4-over-dhpv6)
+  the discussion disgressed into v4configuration conclusion:
+  http://www.ietf.org/mail-archive/web/dhcwg/current/msg15076.html
 
-Several steps were taken to mitigate that objection. In particular,
-v4configuration draft was changed from "use DHCPv4-over-DHCPv6" to
-"Use native DHCPv4, if possible. If not, use DHCPv4-over-DHCPv6".
-Ole said that -04 "looks a lot better.":
-http://www.ietf.org/mail-archive/web/dhcwg/current/msg15179.html
+  Several steps were taken to mitigate that objection. In particular,
+  v4configuration draft was changed from "Use DHCPv4-over-DHCPv6" to
+  "Use native DHCPv4, if possible. If not, use DHCPv4-over-DHCPv6".
+  Ole said that -04 "looks a lot better.":
+  http://www.ietf.org/mail-archive/web/dhcwg/current/msg15179.html
 
 (11) Identify any ID nits the Document Shepherd has found in this
 document. (See http://www.ietf.org/tools/idnits/ and the
 Internet-Drafts Checklist). Boilerplate checks are not enough; this
 check needs to be thorough.
+
+  No nits in -04.
 
 (12) Describe how the document meets any required formal review
 criteria, such as the MIB Doctor, media type, and URI type reviews.
