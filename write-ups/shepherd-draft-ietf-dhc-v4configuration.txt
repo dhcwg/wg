@@ -84,7 +84,7 @@ for publication, please explain why the document is being forwarded to
 the IESG.
 
   I have reviewed this document twice and participated in several
-  off-the list discussions:
+  lengthy off-the list discussions:
   http://www.ietf.org/mail-archive/web/dhcwg/current/msg13799.html
   http://www.ietf.org/mail-archive/web/dhcwg/current/msg15268.html
 
@@ -140,8 +140,10 @@ advance the document, detail those concerns here.
   should be removed. That is in direct contradition to what chairs,
   authors and Ted Lemon (responsible AD) thinks. Our strong belief
   is that the solution should be as generic as possible and not tied
-  to specific existing transition technologies, if possible.
-  Therefore Ole's comment was not addressed.
+  to specific existing transition technologies, if possible. Also, the
+  recommended solution has minimalistic requirements (IPv6 connectivity
+  between the clients and relay/server). Therefore Ole's comment was
+  not addressed.
 
 (7) Has each author confirmed that any and all appropriate IPR
 disclosures required for full conformance with the provisions of BCP
