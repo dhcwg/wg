@@ -68,20 +68,23 @@ IESG.
 
    I did read this document thoroughly and posted my comments to the
    ML: http://www.ietf.org/mail-archive/web/dhcwg/current/msg15380.html
-   TODO: Check if all comments were addressed.
-
+   All my comments were addressed adequately.
 
 (4) Does the document Shepherd have any concerns about the depth or
 breadth of the reviews that have been performed?
 
-  ...
+   No. There was sufficient number of comments received, from both the
+   usual participants and also several people who typically do not
+   participate in DHC discussions.
 
 (5) Do portions of the document need review from a particular or from
 broader perspective, e.g., security, operational complexity, AAA, DNS,
 DHCP, XML, or internationalization? If so, describe the review that took
 place.
 
-  ...
+   No. There are no such sections needed. This draft is purely DHCP
+   extension, so DHC is the appropriate and sufficient WG to do the
+   review.
 
 (6) Describe any specific concerns or issues that the Document Shepherd
 has with this document that the Responsible Area Director and/or the
@@ -91,7 +94,11 @@ is a need for it. In any event, if the WG has discussed those issues and
 has indicated that it still wishes to advance the document, detail those
 concerns here.
 
-  ...
+   One possible concern is about DHC charter. There is no specific
+   text in our charter that would allow DHC to develop extensions for
+   DHCPv4. However, since this is a purely protocol extension and Ted
+   Lemon supported (speaking with his AD hat off, though) its
+   adoption, I think it is ok.
 
 (7) Has each author confirmed that any and all appropriate IPR
 disclosures required for full conformance with the provisions of BCP 78
@@ -103,49 +110,60 @@ and BCP 79 have already been filed. If not, explain why?
 so, summarize any WG discussion and conclusion regarding the IPR
 disclosures.
 
-  ...
+   Yes. There is one filed: http://datatracker.ietf.org/ipr/1278/
+   It was filed very promptly, couple days after the individual draft
+   was submitted. As the draft was individual at that time, the
+   announcement was not sent to the ML. This has been brought up to
+   the WG attention (http://www.ietf.org/mail-archive/web/dhcwg/current/
+   msg15452.html), but it didn't cause any reaction. That is
+   understandable, as the IPR disclousure is quite benign. Disclaimer:
+   I'm not a laywer and often find legal terms confusing.
 
 (9) How solid is the WG consensus behind this document? Does it
 represent the strong concurrence of a few individuals, with others being
 silent, or does the WG as a whole understand and agree with it?
 
-  ...
+   There is strong consensus for this work. There was never any
+   opposition, although the interest was minor couple years ago.
+   Since the DHCPv6 equivalent is moving forward, WG decided to proceed
+   with DHCPv4 as well. That support was demonstrated during adoption
+   call (Dec 2013) and WGLC (Feb/March 2014).
 
 (10) Has anyone threatened an appeal or otherwise indicated extreme
 discontent?  If so, please summarise the areas of conflict in separate
 email messages to the Responsible Area Director. (It should be in a
 separate email because this questionnaire is publicly available.)
 
-  ...
+   No.
 
 (11) Identify any ID nits the Document Shepherd has found in this
 document. (See http://www.ietf.org/tools/idnits/ and the Internet-Drafts
 Checklist). Boilerplate checks are not enough; this check needs to be
 thorough.
 
-  ...
+   There are none. The I-D is idnits clean.
 
 (12) Describe how the document meets any required formal review
 criteria, such as the MIB Doctor, media type, and URI type reviews.
 
-  ...
+   No such additional reviews are required.
 
 (13) Have all references within this document been identified as either
 normative or informative?
 
-  ...
+   Yes.
 
 (14) Are there normative references to documents that are not ready for
 advancement or are otherwise in an unclear state? If such normative
 references exist, what is the plan for their completion?
 
-  ...
+   No. All normative references are to published RFCs.
 
 (15) Are there downward normative references references (see RFC 3967)?
 If so, list these downward references to support the Area Director in
 the Last Call procedure.
 
-  ...
+  No.
 
 (16) Will publication of this document change the status of any existing
 RFCs?  Are those RFCs listed on the title page header, listed in the
@@ -155,7 +173,9 @@ the document where the relationship of this document to the other RFCs
 is discussed. If this information is not in the document, explain why
 the WG considers it unnecessary.
 
-  ...
+  No. Although this draft in a sense extends DHCPv4 Bulk Leasequery
+  (RFC6926), it is still possible to implement RFC6926 without ever
+  looking at this draft, hence no need for "updates RFC6926".
 
 (17) Describe the Document Shepherd's review of the IANA considerations
 section, especially with regard to its consistency with the body of the
@@ -167,16 +187,18 @@ detailed specification of the initial contents for the registry, that
 allocations procedures for future registrations are defined, and a
 reasonable name for the new registry has been suggested (see RFC 5226).
 
-  ...
+  The IANA considerations section is written correctly. It requests
+  IANA to assign 2 DHCPv4 option codes and 3 new status codes. All
+  registers and values are clearly identified.
 
 (18) List any new IANA registries that require Expert Review for future
 allocations. Provide any public guidance that the IESG would find useful
 in selecting the IANA Experts for these new registries.
 
-  ...
+  No new IANA registries are defined.
 
 (19) Describe reviews and automated checks performed by the Document
 Shepherd to validate sections of the document written in a formal
 language, such as XML code, BNF rules, MIB definitions, etc.
 
-  ...
+  No such reviews were performed.
