@@ -9,8 +9,11 @@ this the proper type of RFC? Is this type of RFC indicated in the title
 page header?
 
   Standards track, as clearly indicated on the title page header. This
-  draft defines a standard that DHCPv6 servers may choose to support and
-  it affects how DHCPv6 relay agents operate, so it is the right type.
+  draft defines a standard that DHCPv6 server implementors may choose
+  to support. Despite no new messages or options are defined, this
+  document defines procedures that DHCPv6 servers must follow to
+  properly deploy load balancing. Therefore standards track is the
+  right type.
 
 (2) The IESG approval announcement includes a Document Announcement
 Write-Up. Please provide such a Document Announcement Write-Up. Recent
@@ -19,7 +22,7 @@ documents. The approval announcement contains the following sections:
 
 Technical Summary:
 
-  This document proposes a method of algorithmic load balancing for
+  This document defines a method of algorithmic load balancing for
   IPv6 Dynamic Host Configuration Protocol (DHCPv6) traffic.  It
   enables multiple, cooperating servers to decide which one should
   service a client, without necessarily exchanging any information
@@ -39,7 +42,7 @@ Working Group Summary:
   part, there was never any opposition to that approach. After 4
   individual revisions it was quickly adopted in Dec. 2012. It went
   through WGLC in Feb. 2013, when the I-D received support and several
-  issues were raised. Its sole author became busy at that time and
+  smaller issues were raised. Its sole author became busy at that time and
   the document expired. The work has been resumed after around a year,
   updated -01 was published and a second WGLC was issued and passed.
   Couple minor new issues were raised, but they were addressed in -02.
@@ -56,7 +59,8 @@ Personnel:
 
 Who is the Document Shepherd? Who is the Responsible Area Director?
 
-  Tomek Mrugalski is the document shepherd. Ted Lemon is the responsible AD.
+  Tomek Mrugalski is the document shepherd. Ted Lemon is the
+  responsible AD.
 
 (3) Briefly describe the review of this document that was performed by
 the Document Shepherd. If this version of the document is not ready for
@@ -65,7 +69,7 @@ IESG.
 
   I thoroughly reviewed this document twice:
   http://www.ietf.org/mail-archive/web/dhcwg/current/msg14316.html (-00)
-  ... (-01)
+  http://www.ietf.org/mail-archive/web/dhcwg/current/msg15450.html (-01)
 
   I also did intermediate reviews, but did not post anything to the
   list. I had couple discussions about this I-D with Bernie Volz (DHC
@@ -75,7 +79,11 @@ IESG.
 (4) Does the document Shepherd have any concerns about the depth or
 breadth of the reviews that have been performed?
 
-  No. This is a mature document and I believe it is ready.
+  No. I counted a total of 87 posts (search for "load-balancing",
+  "Load Balancing" or "loadbv6") to the ML regarding this work. This
+  was a healthy discussion and I believe all raised issues have be
+  addressed. There was additional discussion off the list. The draft
+  is ready in my opinion.
 
 (5) Do portions of the document need review from a particular or from
 broader perspective, e.g., security, operational complexity, AAA, DNS,
@@ -99,13 +107,14 @@ concerns here.
 disclosures required for full conformance with the provisions of BCP 78
 and BCP 79 have already been filed. If not, explain why?
 
-  ...
+  The author has confirmed in writing that there are on IPRs
+  outstanding.
 
 (8) Has an IPR disclosure been filed that references this document? If
 so, summarize any WG discussion and conclusion regarding the IPR
 disclosures.
 
-  ...
+  No.
 
 (9) How solid is the WG consensus behind this document? Does it
 represent the strong concurrence of a few individuals, with others being
@@ -141,19 +150,20 @@ criteria, such as the MIB Doctor, media type, and URI type reviews.
 (13) Have all references within this document been identified as either
 normative or informative?
 
-  ...
+  Yes.
 
 (14) Are there normative references to documents that are not ready for
 advancement or are otherwise in an unclear state? If such normative
 references exist, what is the plan for their completion?
 
-  ...
+  There is one normative reference to ietf-dhc-dhcpv4-over-dhcpv6,
+  which has been published couple days ago as RFC7341.
 
 (15) Are there downward normative references references (see RFC 3967)?
 If so, list these downward references to support the Area Director in
 the Last Call procedure.
 
-  ...
+  There are none.
 
 (16) Will publication of this document change the status of any existing
 RFCs?  Are those RFCs listed on the title page header, listed in the
@@ -185,10 +195,10 @@ reasonable name for the new registry has been suggested (see RFC 5226).
 allocations. Provide any public guidance that the IESG would find useful
 in selecting the IANA Experts for these new registries.
 
-  ...
+  There are none.
 
 (19) Describe reviews and automated checks performed by the Document
 Shepherd to validate sections of the document written in a formal
 language, such as XML code, BNF rules, MIB definitions, etc.
 
-  ...
+  No such reviews were performed.
