@@ -140,7 +140,12 @@ document. (See http://www.ietf.org/tools/idnits/ and the Internet-Drafts
 Checklist). Boilerplate checks are not enough; this check needs to be
 thorough.
 
-  ...
+  There is one comment and one warning, but they are benign. The first
+  one is about the document publication date being in the past. The
+  other one is about referencing dhcpv4-over-dhcpv6 draft that has
+  been recently published as RFC7431. That's ok, as it was published
+  after load-balancing draft was published. It can be fixed by the RFC
+  Editor (or by the author if updated revision is required).
 
 (12) Describe how the document meets any required formal review
 criteria, such as the MIB Doctor, media type, and URI type reviews.
