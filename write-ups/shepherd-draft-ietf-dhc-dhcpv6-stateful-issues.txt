@@ -1,0 +1,176 @@
+Write-up for draft-ietf-dhc-dhcpv6-stateful-issues-09
+
+As required by RFC 4858, this is the current template for the Document 
+Shepherd Write-Up.
+
+Changes are expected over time. This version is dated 24 February 2012.
+
+(1) What type of RFC is being requested (BCP, Proposed Standard,
+Internet Standard, Informational, Experimental, or Historic)?  Why
+is this the proper type of RFC?  Is this type of RFC indicated in the
+title page header?
+
+  Standards track. It proposes several updates to RFC3315 and RFC3633
+  (both are proposed standard), so this is the right type. The
+  intended type is clearly indicated in the page header.
+
+(2) The IESG approval announcement includes a Document Announcement
+Write-Up. Please provide such a Document Announcement Write-Up. Recent
+examples can be found in the "Action" announcements for approved
+documents. The approval announcement contains the following sections:
+
+Technical Summary
+
+   DHCPv6 (RFC3316) was not written with the initial expectation that
+   additional stateful DHCPv6 options would be developed. Prefix
+   Delegation (RFC3633) introduced IA_PD option. Implementation
+   experience of the CPE model described in RFC 7084 has shown
+   multiple issues with the DHCPv6 protocol in supporting multiple
+   stateful options. This document updates RFC 3315 and RFC 3633 to
+   address the identified issues. It is also considered an essential
+   milestone in the 3315bis work.
+
+Working Group Summary
+
+  This draft was around in DHC for a long time (WG item since May
+  2012) and was discussed extensively (248 mails posted to the dhc
+  list, with many more off-line and to dhcpv6bis list). It was started
+  as a spin-off from RFC7084 work (Basic requirements for IPv6 CE
+  routers). This I-D went through three WGLCs. The first one (for -03)
+  in Jan. 2013 failed due to lack of responses. The document went into
+  hibernation for a while, and we had a second WGLC in Fed. 2014.
+  Some feedback and support was received, but chairs decided that
+  it's not sufficient for such important I-D (it tweaks several major
+  mechanisms in DHCPv6, so we felt that the bar is set higher than
+  average). Finally, the third WGLC in Dec. 2014 passed. There
+  was never any opposition to this draft. The challenge was to
+  persuade people to voice their support.
+
+Document Quality
+
+  This I-D clarifies and corrects several inconstencies in DHCPv6.
+  The ambiguity in the RFC3315 and RFC3633 cause some interop
+  problems. One could even say that some parts of this I-D are
+  implemented for many years now.
+
+  This document is of high quality. It was extensively reviewed
+  by matter experts, including Ted Lemon, Tim Winters, Jinmei Tatuya
+  and others. This I-D is also considered an essential step
+  in 3315bis work, so it received further reviews and discussions
+  in dhcpv6bis team.
+
+Personnel
+
+  Tomek Mrugalski is the document shepherd. Ted Lemon is the
+  responsible Area Director.
+
+(3) Briefly describe the review of this document that was performed by
+the Document Shepherd.  If this version of the document is not ready
+for publication, please explain why the document is being forwarded to
+the IESG.
+
+  I thoroughly reviewed this document three times:
+  http://www.ietf.org/mail-archive/web/dhcwg/current/msg16059.html (-09)
+  http://www.ietf.org/mail-archive/web/dhcwg/current/msg13797.html (-03)
+  http://www.ietf.org/mail-archive/web/dhcwg/current/msg12591.html (-00)
+
+  I also participated in many discussions related to it (face to face,
+  on dhc list, on dhcpv6bis, and off the list). This document is ready
+  in my opinion and should be published as soon as possible.
+
+(4) Does the document Shepherd have any concerns about the depth or
+breadth of the reviews that have been performed?  
+
+  No. This document was thoroughly reviewed and it should be published
+  sooner rather than later.
+
+(5) Do portions of the document need review from a particular or from
+broader perspective, e.g., security, operational complexity, AAA, DNS,
+DHCP, XML, or internationalization? If so, describe the review that
+took place.
+
+  This document is DHCP specific and it received extensive review in
+  that regard. No external reviews in specific areas are needed.
+
+(6) Describe any specific concerns or issues that the Document Shepherd
+has with this document that the Responsible Area Director and/or the
+IESG should be aware of? For example, perhaps he or she is uncomfortable
+with certain parts of the document, or has concerns whether there really
+is a need for it. In any event, if the WG has discussed those issues and
+has indicated that it still wishes to advance the document, detail those
+concerns here.
+
+  There are no such concerns.
+
+(7) Has each author confirmed that any and all appropriate IPR
+disclosures required for full conformance with the provisions of BCP 78
+and BCP 79 have already been filed. If not, explain why.
+
+  ...
+
+(8) Has an IPR disclosure been filed that references this document?
+If so, summarize any WG discussion and conclusion regarding the IPR
+disclosures.
+
+  ...
+
+(9) How solid is the WG consensus behind this document? Does it 
+represent the strong concurrence of a few individuals, with others
+being silent, or does the WG as a whole understand and agree with it?
+
+  There was always a strong concensus for this work to move
+  forward. There were no objections or oppositions. In that sense
+  the consensus is very solid. The major problem was with getting
+  people to voice their support during short period of WGLC.
+
+(10) Has anyone threatened an appeal or otherwise indicated extreme 
+discontent? If so, please summarise the areas of conflict in separate
+email messages to the Responsible Area Director. (It should be in a
+separate email because this questionnaire is publicly available.) 
+
+(11) Identify any ID nits the Document Shepherd has found in this
+document. (See http://www.ietf.org/tools/idnits/ and the Internet-Drafts
+Checklist). Boilerplate checks are not enough; this check needs to be
+thorough.
+
+(12) Describe how the document meets any required formal review
+criteria, such as the MIB Doctor, media type, and URI type reviews.
+
+(13) Have all references within this document been identified as
+either normative or informative?
+
+(14) Are there normative references to documents that are not ready for
+advancement or are otherwise in an unclear state? If such normative
+references exist, what is the plan for their completion?
+
+(15) Are there downward normative references references (see RFC 3967)?
+If so, list these downward references to support the Area Director in 
+the Last Call procedure. 
+
+(16) Will publication of this document change the status of any
+existing RFCs? Are those RFCs listed on the title page header, listed
+in the abstract, and discussed in the introduction? If the RFCs are not
+listed in the Abstract and Introduction, explain why, and point to the
+part of the document where the relationship of this document to the
+other RFCs is discussed. If this information is not in the document,
+explain why the WG considers it unnecessary.
+
+
+(17) Describe the Document Shepherd's review of the IANA considerations
+section, especially with regard to its consistency with the body of the
+document. Confirm that all protocol extensions that the document makes
+are associated with the appropriate reservations in IANA registries.
+Confirm that any referenced IANA registries have been clearly
+identified. Confirm that newly created IANA registries include a
+detailed specification of the initial contents for the registry, that
+allocations procedures for future registrations are defined, and a
+reasonable name for the new registry has been suggested (see RFC 5226).
+
+(18) List any new IANA registries that require Expert Review for future
+allocations. Provide any public guidance that the IESG would find
+useful in selecting the IANA Experts for these new registries.
+
+(19) Describe reviews and automated checks performed by the Document
+Shepherd to validate sections of the document written in a formal
+language, such as XML code, BNF rules, MIB definitions, etc.
+
