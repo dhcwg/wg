@@ -32,19 +32,20 @@ Technical Summary:
 
 Working Group Summary:
 
-  This document has a long history in DHC. Its predecessor, draft- 
-  ietf-dhc-secure-dhcp-07 finished WG phase and was submitted to
+  This document has a long history in DHC. Its predecessor, draft-
+  ietf-dhc-secure-dhcp-07, finished WG phase and was submitted to
   IESG in March 2013. It was rejected with the recommendation to
   rewrite it without using CGAs. draft-ietf-dhc-sedhcpv6 is
   realization of that request. Its initial version was published
-  in XXX and was quickly adopted. This draft and its predecessor
-  were presented several times during DHC meetings. There was no
+  in June 2013 and was quickly adopted. This draft and its predecessor
+  were presented several times during the DHC meetings. There was no
   opposition to this draft and WG was supportive. One member initially
   had some issues with the draft, but they were resolved and he
-  is now a co-author. It went through WGLC in May. The draft received
-  sufficient support to pass, but there were significant changes
-  introduced, therefore a second WGLC was held in Sep/Nov. 2014.
-  This time it passed with only small corrections needed.
+  is now a co-author. It went through WGLC in May 2014. The draft
+  received sufficient support to pass, but there were significant
+  changes introduced, therefore a second WGLC was held in Sep/Nov.
+  2014. This time it passed with only small corrections addressed
+  in -05.
 
 Document Quality:
 
@@ -52,7 +53,8 @@ Document Quality:
   participants. The options, client's and server's behaviors are
   clearly defined. The document was written by non-native speakers,
   which is visible in the text sometimes, but this does not impact
-  its clarity. The document is idnits clean. XXX (check this)
+  its clarity. The document is idnits clean. (The only complaint
+  is about the date - it was published in Dec. 2014, so it is ok.)
 
 Personnel:
 
@@ -65,19 +67,39 @@ the Document Shepherd. If this version of the document is not ready for
 publication, please explain why the document is being forwarded to the
 IESG.
 
-  ...
+  I did a thorough review of this draft twice for -02 and -04:
+
+-02: http://www.ietf.org/mail-archive/web/dhcwg/current/msg15562.html
+-04: http://www.ietf.org/mail-archive/web/dhcwg/current/msg16041.html
+
+  I also checked that my (small) issues raised in -04 were addressed
+  in -05. I also participated in on- and off-list discussions about
+  this I-D, where I commented on several aspects. In my opinion, the
+  current -05 revision is ready for publication.
 
 (4) Does the document Shepherd have any concerns about the depth or
 breadth of the reviews that have been performed?
 
-  ...
+  This draft received a very thorough review from the DHCP
+  perspective. My inbox shows 181 messages related to this draft with
+  about every active DHC member commenting on it at one time or
+  another. I'm confident that the amount of reviews from DHCP
+  perspective is more than sufficient. This draft could always get
+  more reviews from the security point of view. I'm hoping that to
+  happen as part of the IETF LC process.
 
 (5) Do portions of the document need review from a particular or from
 broader perspective, e.g., security, operational complexity, AAA, DNS,
 DHCP, XML, or internationalization? If so, describe the review that took
 place.
 
-  ...
+  This draft received thorough DHC review. Two people involved, Sheng
+  Jiang and Jinmei Tatuya (who initially served as a reviewer and
+  later joined as co-author), are considered security experts. A third
+  one, Francis Dupont, who is also a security expert, reviewed this
+  draft and had commments which were addressed. If this review is
+  insufficient from the security perspective, it may be useful to
+  request review in the security directorate.
 
 (6) Describe any specific concerns or issues that the Document Shepherd
 has with this document that the Responsible Area Director and/or the
@@ -87,61 +109,67 @@ is a need for it. In any event, if the WG has discussed those issues and
 has indicated that it still wishes to advance the document, detail those
 concerns here.
 
-  ...
+  I do not have such concerns.
 
 (7) Has each author confirmed that any and all appropriate IPR
 disclosures required for full conformance with the provisions of BCP 78
 and BCP 79 have already been filed. If not, explain why?
 
-  ...
+  Yes. All four authors confirmed in writing that the process has
+  been followed. There are no IPR disclosures and they are not aware
+  of any outstanding disclosures.
 
 (8) Has an IPR disclosure been filed that references this document? If
 so, summarize any WG discussion and conclusion regarding the IPR
 disclosures.
 
-  ...
+  No.
 
 (9) How solid is the WG consensus behind this document? Does it
 represent the strong concurrence of a few individuals, with others being
 silent, or does the WG as a whole understand and agree with it?
 
-  ...
+  The WG consensus is solid. There was never any opposition and the
+  WG was supportive for this work. The WG participants involved
+  discussed the issues at length. I counted 20 members involved
+  in the sedhcpv6 discussion.
 
 (10) Has anyone threatened an appeal or otherwise indicated extreme
 discontent?  If so, please summarise the areas of conflict in separate
 email messages to the Responsible Area Director. (It should be in a
 separate email because this questionnaire is publicly available.)
 
-  ...
+  No.
 
 (11) Identify any ID nits the Document Shepherd has found in this
 document. (See http://www.ietf.org/tools/idnits/ and the Internet-Drafts
 Checklist). Boilerplate checks are not enough; this check needs to be
 thorough.
 
-  ...
+  There are 2 nits, but they are about the year (2014) not matching
+  current. That is ok, as the -05 was published in Dec. 2014.
 
 (12) Describe how the document meets any required formal review
 criteria, such as the MIB Doctor, media type, and URI type reviews.
 
-  ...
+  No such review was necessary.
 
 (13) Have all references within this document been identified as either
 normative or informative?
 
-  ...
+  Yes.
 
 (14) Are there normative references to documents that are not ready for
 advancement or are otherwise in an unclear state? If such normative
 references exist, what is the plan for their completion?
 
-  ...
+  No. All normative references are to published RFCs only.
 
 (15) Are there downward normative references references (see RFC 3967)?
 If so, list these downward references to support the Area Director in
 the Last Call procedure.
 
-  ...
+  No. There are no downard normative references.
 
 (16) Will publication of this document change the status of any existing
 RFCs?  Are those RFCs listed on the title page header, listed in the
@@ -151,7 +179,8 @@ the document where the relationship of this document to the other RFCs
 is discussed. If this information is not in the document, explain why
 the WG considers it unnecessary.
 
-  ...
+  No. This draft defines new options and extends, but not updates the
+  base (RFC3315) DHCPv6 spec. As such, lack of "updates 3315" is correct.
 
 (17) Describe the Document Shepherd's review of the IANA considerations
 section, especially with regard to its consistency with the body of the
@@ -163,16 +192,20 @@ detailed specification of the initial contents for the registry, that
 allocations procedures for future registrations are defined, and a
 reasonable name for the new registry has been suggested (see RFC 5226).
 
-  ...
+  IANA considerations section requests addition of four option codes
+  to the existing DHCPv6 option codes list. It also requests creation
+  of two new registries on the DHCPv6 parameters registry
+  page. Initial contents, allocation procedures and reasonable names
+  are clearly specified.
 
 (18) List any new IANA registries that require Expert Review for future
 allocations. Provide any public guidance that the IESG would find useful
 in selecting the IANA Experts for these new registries.
 
-  ...
+  There are no new IANA registries that require Expert Review.
 
 (19) Describe reviews and automated checks performed by the Document
 Shepherd to validate sections of the document written in a formal
 language, such as XML code, BNF rules, MIB definitions, etc.
 
-  ...
+  No such checks were necessary.
