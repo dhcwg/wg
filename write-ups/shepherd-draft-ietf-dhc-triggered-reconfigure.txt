@@ -1,0 +1,181 @@
+(1) What type of RFC is being requested (BCP, Proposed Standard, 
+    Internet Standard, Informational, Experimental, or Historic)? Why 
+    is this the proper type of RFC? Is this type of RFC indicated in 
+    the title page header? 
+
+Proposed Standard.  This documents an extension to the DHCPv6 
+protocol, so it only really makes sense as a PS.  The intended type is 
+indicated in the header. 
+
+(2) The IESG approval announcement includes a Document Announcement 
+    Write-Up. Please provide such a Document Announcement 
+    Write-Up. Recent examples can be found in the "Action" 
+    announcements for approved documents. The approval announcement 
+    contains the following sections: 
+
+Technical Summary: 
+
+This document defines new DHCPv6 messages: Reconfigure-Request and
+Reconfigure-Reply. Reconfigure-Request message is sent by a DHCPv6
+relay agent to notify a DHCPv6 server about a configuration
+information change, so that the DHCPv6 server can send a Reconfigure
+message accordingly. Reconfigure-Reply message is used by the server
+to acknowledge the receipt of Reconfigure-Request. 
+
+Working Group Summary: 
+
+This document was proposed in the working group in August 2012 as an 
+extension to trigger client reconfiguration, via the DHCPv6 server,
+when configuration changes are made on the relay agent. The work was
+adopted as a WG item in September 2012 as there was good support and
+interest for the work.
+
+Document Quality: 
+
+I'm not aware of any existing implementations. This is something that 
+a number of folks and relay agent vendors have requested, and we
+expect to see implementation in relay agents and servers.. I think
+everyone who provided substantive review of the document is mentioned
+in the acknowledgements section. 
+
+
+Personnel: 
+
+Bernie Volz is the document shepherd. Ted Lemon is the responsible AD. 
+
+(3) Briefly describe the review of this document that was performed by 
+    the Document Shepherd. If this version of the document is not 
+    ready for publication, please explain why the document is being 
+    forwarded to the IESG. 
+
+I read the document thoroughly, and submitted quite a few editorial 
+suggestions to the authors, which they implemented.  The differences 
+between the -02 and -05 versions of the document reflect this review. 
+
+(4) Does the document Shepherd have any concerns about the depth or 
+    breadth of the reviews that have been performed? 
+
+No, the document has had a great deal of careful review. 
+
+(5) Do portions of the document need review from a particular or from 
+    broader perspective, e.g., security, operational complexity, AAA, 
+    DNS, DHCP, XML, or internationalization? If so, describe the 
+    review that took place. 
+
+This is strictly a DHCP doc, and has had plenty of review from DHCP
+experts. 
+
+(6) Describe any specific concerns or issues that the Document 
+    Shepherd has with this document that the Responsible Area Director 
+    and/or the IESG should be aware of? For example, perhaps he or she 
+    is uncomfortable with certain parts of the document, or has 
+    concerns whether there really is a need for it. In any event, if 
+    the WG has discussed those issues and has indicated that it still 
+    wishes to advance the document, detail those concerns here. 
+
+I think the document is good as written, and serves a useful purpose.
+
+
+(7) Has each author confirmed that any and all appropriate IPR 
+    disclosures required for full conformance with the provisions of 
+    BCP 78 and BCP 79 have already been filed. If not, explain why? 
+
+Yes, the authors, Mohamed Boucadair and Xavier Pougnard, did confirm
+that they are not aware of any IPR.
+
+(8) Has an IPR disclosure been filed that references this document? If 
+    so, summarize any WG discussion and conclusion regarding the IPR 
+    disclosures. 
+
+No.
+
+(9) How solid is the WG consensus behind this document? Does it 
+    represent the strong concurrence of a few individuals, with others 
+    being silent, or does the WG as a whole understand and agree with it? 
+
+There is a strong consensus behind this document and in particular from
+very active WG participants (i.e. "DHCP experts").
+
+(10) Has anyone threatened an appeal or otherwise indicated extreme 
+    discontent? If so, please summarise the areas of conflict in 
+    separate email messages to the Responsible Area Director. (It 
+    should be in a separate email because this questionnaire is 
+    publicly available.) 
+
+No, and nobody's indicated that they were against the WGLC or had
+any issues with the document. 
+
+(11) Identify any ID nits the Document Shepherd has found in this 
+    document. (See http://www.ietf.org/tools/idnits/ and the 
+    Internet-Drafts Checklist). Boilerplate checks are not enough; 
+    this check needs to be thorough. 
+
+The document passes idnits with no errors and review using the
+checklist did not turn up any issues.
+
+(12) Describe how the document meets any required formal review 
+    criteria, such as the MIB Doctor, media type, and URI type 
+    reviews. 
+
+The document contains nothing like this. 
+
+(13) Have all references within this document been identified as 
+    either normative or informative? 
+
+Yes. 
+
+(14) Are there normative references to documents that are not ready 
+    for advancement or are otherwise in an unclear state? If such 
+    normative references exist, what is the plan for their 
+    completion? 
+
+No, all the normative references are to RFCs. 
+
+(15) Are there downward normative references references (see RFC 
+    3967)? If so, list these downward references to support the Area 
+    Director in the Last Call procedure. 
+
+No. 
+
+(16) Will publication of this document change the status of any 
+    existing RFCs? Are those RFCs listed on the title page header, 
+    listed in the abstract, and discussed in the introduction? If the 
+    RFCs are not listed in the Abstract and Introduction, explain 
+    why, and point to the part of the document where the relationship 
+    of this document to the other RFCs is discussed. If this 
+    information is not in the document, explain why the WG considers 
+    it unnecessary. 
+
+RFC 3315 and RFC 6422 will be extended - new DHCPv6 messages will be
+added and the RSOO option processing will be expanded. The document
+indicates these RFCs.
+
+
+(17) Describe the Document Shepherd's review of the IANA 
+    considerations section, especially with regard to its consistency 
+    with the body of the document. Confirm that all protocol 
+    extensions that the document makes are associated with the 
+    appropriate reservations in IANA registries. Confirm that any 
+    referenced IANA registries have been clearly identified. Confirm 
+    that newly created IANA registries include a detailed 
+    specification of the initial contents for the registry, that 
+    allocations procedures for future registrations are defined, and 
+    a reasonable name for the new registry has been suggested (see 
+    RFC 5226). 
+
+I reviewed the IANA Considerations section and it is fine and clear;
+two new DHCPv6 options are being requested (registry is clearly
+identified). 
+
+(18) List any new IANA registries that require Expert Review for 
+    future allocations. Provide any public guidance that the IESG 
+    would find useful in selecting the IANA Experts for these new 
+    registries. 
+
+None. 
+
+(19) Describe reviews and automated checks performed by the Document 
+    Shepherd to validate sections of the document written in a formal 
+    language, such as XML code, BNF rules, MIB definitions, etc. 
+
+There are no such parts to the document.
