@@ -179,8 +179,9 @@ the document where the relationship of this document to the other RFCs
 is discussed. If this information is not in the document, explain why
 the WG considers it unnecessary.
 
-  No. This draft defines new options and extends, but not updates the
-  base (RFC3315) DHCPv6 spec. As such, lack of "updates 3315" is correct.
+  No. This draft defines new options and extends, but does not update
+  the base (RFC3315) DHCPv6 spec. As such, lack of "updates 3315" is
+  correct.
 
 (17) Describe the Document Shepherd's review of the IANA considerations
 section, especially with regard to its consistency with the body of the
