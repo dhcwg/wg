@@ -1,9 +1,10 @@
-Write-up for draft-ietf-dhc-dhcpv6-stateful-issues-09
-
-As required by RFC 4858, this is the current template for the Document 
+As required by RFC 4858, this is the current template for the Document
 Shepherd Write-Up.
 
-Changes are expected over time. This version is dated 24 February 2012.
+Changes are expected over time. This version is dated 24 February
+2012.
+
+Write-up for draft-ietf-dhc-dhcpv6-stateful-issues-10
 
 (1) What type of RFC is being requested (BCP, Proposed Standard,
 Internet Standard, Informational, Experimental, or Historic)?  Why
@@ -21,14 +22,14 @@ documents. The approval announcement contains the following sections:
 
 Technical Summary
 
-   DHCPv6 (RFC3316) was not written with the initial expectation that
-   additional stateful DHCPv6 options would be developed. Prefix
-   Delegation (RFC3633) introduced IA_PD option. Implementation
-   experience of the CPE model described in RFC 7084 has shown
-   multiple issues with the DHCPv6 protocol in supporting multiple
-   stateful options. This document updates RFC 3315 and RFC 3633 to
-   address the identified issues. It is also considered an essential
-   milestone in the 3315bis work.
+  DHCPv6 (RFC3316) was not written with the initial expectation that
+  additional stateful DHCPv6 options would be developed. Prefix
+  Delegation (RFC3633) introduced IA_PD option. Implementation
+  experience of the CPE model described in RFC 7084 has shown
+  multiple issues with the DHCPv6 protocol in supporting multiple
+  stateful options. This document updates RFC 3315 and RFC 3633 to
+  address the identified issues. It is also considered an essential
+  milestone in the 3315bis work.
 
 Working Group Summary
 
@@ -50,7 +51,8 @@ Document Quality
 
   This I-D clarifies and corrects several inconstencies in DHCPv6.
   The ambiguity in the RFC3315 and RFC3633 cause some interop
-  problems. One could even say that some parts of this I-D are
+  problems. Several of the issues addressed were raised during
+  interop events. One could even say that many parts of this I-D are
   implemented for many years now.
 
   This document is of high quality. It was extensively reviewed
@@ -59,10 +61,20 @@ Document Quality
   in 3315bis work, so it received further reviews and discussions
   in dhcpv6bis team.
 
+  Are there existing implementations of the protocol? Have a
+  significant number of vendors indicated their plan to
+  implement the specification? Are there any reviewers that
+  merit special mention as having done a thorough review,
+  e.g., one that resulted in important changes or a
+  conclusion that the document had no substantive issues? If
+  there was a MIB Doctor, Media Type or other expert review,
+  what was its course (briefly)? In the case of a Media Type
+  review, on what date was the request posted?
+
 Personnel
 
-  Tomek Mrugalski is the document shepherd. Ted Lemon is the
-  responsible Area Director.
+  Who is the Document Shepherd? Who is the Responsible Area
+  Director?
 
 (3) Briefly describe the review of this document that was performed by
 the Document Shepherd.  If this version of the document is not ready
@@ -79,18 +91,21 @@ the IESG.
   in my opinion and should be published as soon as possible.
 
 (4) Does the document Shepherd have any concerns about the depth or
-breadth of the reviews that have been performed?  
+breadth of the reviews that have been performed?
 
-  No. This document was thoroughly reviewed and it should be published
-  sooner rather than later.
+  No. This document was thoroughly reviewed and it should be published.
 
 (5) Do portions of the document need review from a particular or from
 broader perspective, e.g., security, operational complexity, AAA, DNS,
 DHCP, XML, or internationalization? If so, describe the review that
 took place.
 
-  This document is DHCP specific and it received extensive review in
-  that regard. No external reviews in specific areas are needed.
+  This I-D is DHCPv6-centric, so DHC is the proper WG for this work.
+  It was reviewed extensively. There is no need for any outside area
+  review.
+
+  TODO: mention that the original request for this came from v6ops (or
+  was it 6man).
 
 (6) Describe any specific concerns or issues that the Document Shepherd
 has with this document that the Responsible Area Director and/or the
@@ -100,38 +115,45 @@ is a need for it. In any event, if the WG has discussed those issues and
 has indicated that it still wishes to advance the document, detail those
 concerns here.
 
-  There are no such concerns.
-
 (7) Has each author confirmed that any and all appropriate IPR
 disclosures required for full conformance with the provisions of BCP 78
 and BCP 79 have already been filed. If not, explain why.
 
-  ...
+  Yes, all authors confirmed. There are no IPRs, existing or
+  outstanding.
 
 (8) Has an IPR disclosure been filed that references this document?
 If so, summarize any WG discussion and conclusion regarding the IPR
 disclosures.
 
-  ...
+  No.
 
-(9) How solid is the WG consensus behind this document? Does it 
+(9) How solid is the WG consensus behind this document? Does it
 represent the strong concurrence of a few individuals, with others
 being silent, or does the WG as a whole understand and agree with it?
 
-  There was always a strong concensus for this work to move
-  forward. There were no objections or oppositions. In that sense
-  the consensus is very solid. The major problem was with getting
-  people to voice their support during short period of WGLC.
+  The consensus is pretty solid. This document is active in the DHC
+  for quite a long time, so the support was expressed over multiple
+  occasions. This draft is essentially a collection of small tweaks
+  to the DHCPv6 protocol. It was a sort of judgment call to what to
+  include in this draft and what postpone to dhcpv6bis. There were
+  infrequent suggestions to include more in stateful-issues, but
+  the consensus is very solid in this case.
 
-(10) Has anyone threatened an appeal or otherwise indicated extreme 
+(10) Has anyone threatened an appeal or otherwise indicated extreme
 discontent? If so, please summarise the areas of conflict in separate
 email messages to the Responsible Area Director. (It should be in a
-separate email because this questionnaire is publicly available.) 
+separate email because this questionnaire is publicly available.)
+
+  No.
 
 (11) Identify any ID nits the Document Shepherd has found in this
 document. (See http://www.ietf.org/tools/idnits/ and the Internet-Drafts
 Checklist). Boilerplate checks are not enough; this check needs to be
 thorough.
+
+  idnits reports mis-used MUST not :(
+  TODO
 
 (12) Describe how the document meets any required formal review
 criteria, such as the MIB Doctor, media type, and URI type reviews.
@@ -144,8 +166,10 @@ advancement or are otherwise in an unclear state? If such normative
 references exist, what is the plan for their completion?
 
 (15) Are there downward normative references references (see RFC 3967)?
-If so, list these downward references to support the Area Director in 
-the Last Call procedure. 
+If so, list these downward references to support the Area Director in
+the Last Call procedure.
+
+  No. There are no such references.
 
 (16) Will publication of this document change the status of any
 existing RFCs? Are those RFCs listed on the title page header, listed
@@ -155,6 +179,9 @@ part of the document where the relationship of this document to the
 other RFCs is discussed. If this information is not in the document,
 explain why the WG considers it unnecessary.
 
+  Yes. This document will update RFC3315 and RFC3633. That is clearly
+  stated on the front page and in the abstract. The nature of those
+  changes are discussed in the Introduction.
 
 (17) Describe the Document Shepherd's review of the IANA considerations
 section, especially with regard to its consistency with the body of the
@@ -166,11 +193,17 @@ detailed specification of the initial contents for the registry, that
 allocations procedures for future registrations are defined, and a
 reasonable name for the new registry has been suggested (see RFC 5226).
 
+  This document does not require any IANA actions. That is clearly
+  stated in the IANA considerations section.
+
 (18) List any new IANA registries that require Expert Review for future
 allocations. Provide any public guidance that the IESG would find
 useful in selecting the IANA Experts for these new registries.
+
+  There no such registries defined.
 
 (19) Describe reviews and automated checks performed by the Document
 Shepherd to validate sections of the document written in a formal
 language, such as XML code, BNF rules, MIB definitions, etc.
 
+  There are no such sections, so automated checks are not necessary.
