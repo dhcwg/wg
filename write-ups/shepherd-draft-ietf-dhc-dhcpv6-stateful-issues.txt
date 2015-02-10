@@ -24,57 +24,54 @@ Technical Summary
 
   DHCPv6 (RFC3316) was not written with the initial expectation that
   additional stateful DHCPv6 options would be developed. Prefix
-  Delegation (RFC3633) introduced IA_PD option. Implementation
-  experience of the CPE model described in RFC 7084 has shown
-  multiple issues with the DHCPv6 protocol in supporting multiple
+  Delegation (RFC3633) introduced the IA_PD option, which is stateful.
+  Implementation experience of the CPE model described in RFC 7084 has
+  shown multiple issues with the DHCPv6 protocol in supporting multiple
   stateful options. This document updates RFC 3315 and RFC 3633 to
   address the identified issues. It is also considered an essential
-  milestone in the 3315bis work.
+  milestone in the RFC3315bis work.
 
 Working Group Summary
 
   This draft was around in DHC for a long time (WG item since May
   2012) and was discussed extensively (248 mails posted to the dhc
-  list, with many more off-line and to dhcpv6bis list). It was started
-  as a spin-off from RFC7084 work (Basic requirements for IPv6 CE
-  routers). This I-D went through three WGLCs. The first one (for -03)
-  in Jan. 2013 failed due to lack of responses. The document went into
-  hibernation for a while, and we had a second WGLC in Fed. 2014.
-  Some feedback and support was received, but chairs decided that
-  it's not sufficient for such important I-D (it tweaks several major
-  mechanisms in DHCPv6, so we felt that the bar is set higher than
-  average). Finally, the third WGLC in Dec. 2014 passed. There
-  was never any opposition to this draft. The challenge was to
-  persuade people to voice their support.
+  list the last time I checked, with many more off-line and on the
+  dhcpv6bis list). It was started as a spin-off from RFC7084 work
+  (Basic requirements for IPv6 CE routers). This I-D went through
+  three WGLCs. The first one (for -03) in Jan. 2013 failed due to
+  lack of responses. The document went into hibernation for a while,
+  and we had a second WGLC in Fed. 2014. Some feedback and support was
+  received, but chairs decided that it's not sufficient for such an
+  important I-D (it tweaks several major mechanisms in DHCPv6, so we
+  felt that the bar is set higher than average). Finally, the third
+  WGLC in Dec. 2014 passed. There was never any opposition to this
+  draft. The challenge was to persuade people to voice their support.
 
 Document Quality
 
   This I-D clarifies and corrects several inconstencies in DHCPv6.
-  The ambiguity in the RFC3315 and RFC3633 cause some interop
+  The ambiguity in the RFC3315 and RFC3633 causes some interop
   problems. Several of the issues addressed were raised during
-  interop events. One could even say that many parts of this I-D are
-  implemented for many years now.
+  interop events.
 
-  This document is of high quality. It was extensively reviewed
-  by matter experts, including Ted Lemon, Tim Winters, Jinmei Tatuya
-  and others. This I-D is also considered an essential step
-  in 3315bis work, so it received further reviews and discussions
-  in dhcpv6bis team.
+  This document is of high quality. It was extensively reviewed by
+  matter experts that are involved in several independent
+  implementations. This I-D is also considered an essential step in
+  the 3315bis work, so it received further reviews and discussions in
+  the dhcpv6bis team.
 
-  Are there existing implementations of the protocol? Have a
-  significant number of vendors indicated their plan to
-  implement the specification? Are there any reviewers that
-  merit special mention as having done a thorough review,
-  e.g., one that resulted in important changes or a
-  conclusion that the document had no substantive issues? If
-  there was a MIB Doctor, Media Type or other expert review,
-  what was its course (briefly)? In the case of a Media Type
-  review, on what date was the request posted?
+  There are partial implementations of this proposal, but all major
+  vendors that participated are planning to implement this proposal.
+  Many clarifications came out as a result of the interop testing.
+  One could even say that many parts of this I-D are implemented for
+  many years now. Prompt adoption once this is published in envisaged.
 
 Personnel
 
   Who is the Document Shepherd? Who is the Responsible Area
   Director?
+
+  Tomek Mrugalski is the shepherd. Ted Lemon is the responsible AD.
 
 (3) Briefly describe the review of this document that was performed by
 the Document Shepherd.  If this version of the document is not ready
@@ -104,9 +101,6 @@ took place.
   It was reviewed extensively. There is no need for any outside area
   review.
 
-  TODO: mention that the original request for this came from v6ops (or
-  was it 6man).
-
 (6) Describe any specific concerns or issues that the Document Shepherd
 has with this document that the Responsible Area Director and/or the
 IESG should be aware of? For example, perhaps he or she is uncomfortable
@@ -115,11 +109,13 @@ is a need for it. In any event, if the WG has discussed those issues and
 has indicated that it still wishes to advance the document, detail those
 concerns here.
 
+  I have no such concerns.
+
 (7) Has each author confirmed that any and all appropriate IPR
 disclosures required for full conformance with the provisions of BCP 78
 and BCP 79 have already been filed. If not, explain why.
 
-  Yes, all authors confirmed. There are no IPRs, existing or
+  Yes, all authors confirmed in writing. There are no IPRs, existing or
   outstanding.
 
 (8) Has an IPR disclosure been filed that references this document?
@@ -136,9 +132,9 @@ being silent, or does the WG as a whole understand and agree with it?
   for quite a long time, so the support was expressed over multiple
   occasions. This draft is essentially a collection of small tweaks
   to the DHCPv6 protocol. It was a sort of judgment call to what to
-  include in this draft and what postpone to dhcpv6bis. There were
+  include in this draft and what to postpone to dhcpv6bis. There were
   infrequent suggestions to include more in stateful-issues, but
-  the consensus is very solid in this case.
+  the consensus is rather solid in this case.
 
 (10) Has anyone threatened an appeal or otherwise indicated extreme
 discontent? If so, please summarise the areas of conflict in separate
@@ -152,18 +148,23 @@ document. (See http://www.ietf.org/tools/idnits/ and the Internet-Drafts
 Checklist). Boilerplate checks are not enough; this check needs to be
 thorough.
 
-  idnits reports mis-used MUST not :(
-  TODO
+  TODO (idnits on -10 reports mis-used MUST not)
 
 (12) Describe how the document meets any required formal review
 criteria, such as the MIB Doctor, media type, and URI type reviews.
 
+  No such review is required.
+
 (13) Have all references within this document been identified as
 either normative or informative?
+
+  Yes.
 
 (14) Are there normative references to documents that are not ready for
 advancement or are otherwise in an unclear state? If such normative
 references exist, what is the plan for their completion?
+
+  No. All normative references are to published RFCs only.
 
 (15) Are there downward normative references references (see RFC 3967)?
 If so, list these downward references to support the Area Director in
@@ -200,7 +201,7 @@ reasonable name for the new registry has been suggested (see RFC 5226).
 allocations. Provide any public guidance that the IESG would find
 useful in selecting the IANA Experts for these new registries.
 
-  There no such registries defined.
+  There are no such registries defined.
 
 (19) Describe reviews and automated checks performed by the Document
 Shepherd to validate sections of the document written in a formal
