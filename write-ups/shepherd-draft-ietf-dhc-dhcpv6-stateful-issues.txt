@@ -4,15 +4,15 @@ Shepherd Write-Up.
 Changes are expected over time. This version is dated 24 February
 2012.
 
-Write-up for draft-ietf-dhc-dhcpv6-stateful-issues-10
+Write-up for draft-ietf-dhc-dhcpv6-stateful-issues-11
 
 (1) What type of RFC is being requested (BCP, Proposed Standard,
 Internet Standard, Informational, Experimental, or Historic)?  Why
 is this the proper type of RFC?  Is this type of RFC indicated in the
 title page header?
 
-  Standards track. It proposes several updates to RFC3315 and RFC3633
-  (both are proposed standard), so this is the right type. The
+  Standards track. This I-D proposes several updates to RFC3315 and
+  RFC3633 (both are proposed standard), so this is the right type. The
   intended type is clearly indicated in the page header.
 
 (2) The IESG approval announcement includes a Document Announcement
@@ -33,19 +33,19 @@ Technical Summary
 
 Working Group Summary
 
-  This draft was around in DHC for a long time (WG item since May
+  This draft was around in the DHC for a long time (WG item since May
   2012) and was discussed extensively (248 mails posted to the dhc
   list the last time I checked, with many more off-line and on the
   dhcpv6bis list). It was started as a spin-off from RFC7084 work
   (Basic requirements for IPv6 CE routers). This I-D went through
   three WGLCs. The first one (for -03) in Jan. 2013 failed due to
   lack of responses. The document went into hibernation for a while,
-  and we had a second WGLC in Fed. 2014. Some feedback and support was
+  and we had a second WGLC in Feb. 2014. Some feedback and support was
   received, but chairs decided that it's not sufficient for such an
   important I-D (it tweaks several major mechanisms in DHCPv6, so we
   felt that the bar is set higher than average). Finally, the third
   WGLC in Dec. 2014 passed. There was never any opposition to this
-  draft. The challenge was to persuade people to voice their support.
+  draft. The challenge was to persuade people to express their support.
 
 Document Quality
 
@@ -64,7 +64,7 @@ Document Quality
   vendors that participated are planning to implement this proposal.
   Many clarifications came out as a result of the interop testing.
   One could even say that many parts of this I-D are implemented for
-  many years now. Prompt adoption once this is published in envisaged.
+  many years now. Prompt adoption upon publication is expected.
 
 Personnel
 
@@ -84,8 +84,9 @@ the IESG.
   http://www.ietf.org/mail-archive/web/dhcwg/current/msg12591.html (-00)
 
   I also participated in many discussions related to it (face to face,
-  on dhc list, on dhcpv6bis, and off the list). This document is ready
-  in my opinion and should be published as soon as possible.
+  on dhc list, on dhcpv6bis, and off the list). I checked all changes
+  since -09. This document is ready in my opinion and should be
+  published.
 
 (4) Does the document Shepherd have any concerns about the depth or
 breadth of the reviews that have been performed?
@@ -134,7 +135,7 @@ being silent, or does the WG as a whole understand and agree with it?
   to the DHCPv6 protocol. It was a sort of judgment call to what to
   include in this draft and what to postpone to dhcpv6bis. There were
   infrequent suggestions to include more in stateful-issues, but
-  the consensus is rather solid in this case.
+  the consensus is rather strong in this case.
 
 (10) Has anyone threatened an appeal or otherwise indicated extreme
 discontent? If so, please summarise the areas of conflict in separate
@@ -148,7 +149,15 @@ document. (See http://www.ietf.org/tools/idnits/ and the Internet-Drafts
 Checklist). Boilerplate checks are not enough; this check needs to be
 thorough.
 
-  TODO (idnits on -10 reports mis-used MUST not)
+  There are 2 idnit comments and both are bogus. The first one is
+  about the draft using pre-RFC5378 disclaimer. This draft uses parts
+  of the RFC3315 that was published in 2003 (before 5378) and the
+  I-D authors didn't manage to get approval of all original RFC
+  authors, so the dislaimer is correct.
+
+  Second issue reported is about a [17] reference in line 606. That
+  is correct as well, as the whole section 4.4.5 is a replacement text
+  for section 18.1.8 of RFC3315. [17] is a valid reference in RFC3315.
 
 (12) Describe how the document meets any required formal review
 criteria, such as the MIB Doctor, media type, and URI type reviews.
@@ -182,7 +191,7 @@ explain why the WG considers it unnecessary.
 
   Yes. This document will update RFC3315 and RFC3633. That is clearly
   stated on the front page and in the abstract. The nature of those
-  changes are discussed in the Introduction.
+  changes is discussed in the Introduction.
 
 (17) Describe the Document Shepherd's review of the IANA considerations
 section, especially with regard to its consistency with the body of the
