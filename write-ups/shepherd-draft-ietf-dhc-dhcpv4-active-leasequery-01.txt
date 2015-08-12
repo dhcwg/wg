@@ -1,16 +1,16 @@
 Document Writeup, template from IESG area on ietf.org, dated 24 February
 2012.
 
-draft-ietf-dhc-dhcpv4-active-leasequery-01
+draft-ietf-dhc-dhcpv4-active-leasequery-04
 
 (1) What type of RFC is being requested (BCP, Proposed Standard,
 Internet Standard, Informational, Experimental, or Historic)? Why is
 this the proper type of RFC? Is this type of RFC indicated in the title
 page header?
 
-   Proposed standard. This I-D defines an extension to the DHCPv4, so
-   it only really makes sense as Proposed standard. The indended type
-   is clearly indicated in the header.
+   Standards track. This I-D defines an extension to the DHCPv4 and
+   also updates existing standards track RFC, so it is a valid type.
+   The indended type is clearly indicated in the header.
 
 (2) The IESG approval announcement includes a Document Announcement
 Write-Up. Please provide such a Document Announcement Write-Up. Recent
@@ -43,22 +43,27 @@ Working Group Summary:
    path. Cisco seems to have working implementation of this protocol,
    which is reflected in high maturity of the draft. 00 WG item 
    passed WGLC in March 2014. The -01 (June 2014) addresses all raised
-   comments (all were minor).
+   comments (all were minor). This work was somewhat stalled as its
+   v6 equivalent required several updates. The latest v6 draft was
+   approved in June 2015 and all the changes required to address IESG
+   comments were applied to v4 (in version -04).
 
 Document Quality:
 
-   Even though the draft has relatively low number (-01), it is high
-   quality and its content is mature. Personally, I think this is the
-   result of several factors: Cisco having its implementation, great
-   experience of its primary author (Kim Kinnear) and also the
-   similarity to its DHCPv6 counter-part. I have reviewed it and
+   This document is of high quality. Personally, I think this is the
+   result of several factors: the imlementation primary author is
+   involved in has this mechanism implemented with actual deployments
+   for serveral years, significant experience of its primary author
+   and also the similarity to its DHCPv6 counter-part, which was
+   recently approved by IESG. Author made extra care to apply all
+   changes to both v4 and v6 drafts. I have reviewed -04 and
    think it is ready for publication. It is idnits clean.
 
 Personnel:
 
 Who is the Document Shepherd? Who is the Responsible Area Director?
 
-   Tomek Mrugalski is the document shepherd. Ted Lemon is the
+   Tomek Mrugalski is the document shepherd. Brian Haberman is the
    responsible AD.
 
 (3) Briefly describe the review of this document that was performed by
@@ -68,7 +73,9 @@ IESG.
 
    I did read this document thoroughly and posted my comments to the
    ML: http://www.ietf.org/mail-archive/web/dhcwg/current/msg15380.html
-   All my comments were addressed adequately.
+   All my comments were addressed adequately. I also checked that all
+   comments raised during v6 active leasequery review in IESG were
+   also addressed in this v4 draft.
 
 (4) Does the document Shepherd have any concerns about the depth or
 breadth of the reviews that have been performed?
@@ -94,17 +101,21 @@ is a need for it. In any event, if the WG has discussed those issues and
 has indicated that it still wishes to advance the document, detail those
 concerns here.
 
-   One possible concern is about DHC charter. There is no specific
-   text in our charter that would allow DHC to develop extensions for
-   DHCPv4. However, since this is a purely protocol extension and Ted
-   Lemon supported (speaking with his AD hat off, though) its
-   adoption, I think it is ok.
+   I do not have any concerns. One objection raised during the
+   discussion of the v6 version of this draft was that this mechanism
+   can be misused for pervasive monitoring. While technically it is
+   true, once the DHCP server cooperates (willingly or otherwise), he
+   may provide access to the DHCP server database and extract that
+   information anyway. Also, from my business experience I can see
+   valid use cases where an ISP could use active leasequery to notify
+   its inventory database about devices going up or down.
 
 (7) Has each author confirmed that any and all appropriate IPR
 disclosures required for full conformance with the provisions of BCP 78
 and BCP 79 have already been filed. If not, explain why?
 
-  ...
+  Yes. Each author confirmed in writing that they are not aware of any
+  outstading IPR disclousures.
 
 (8) Has an IPR disclosure been filed that references this document? If
 so, summarize any WG discussion and conclusion regarding the IPR
@@ -173,9 +184,9 @@ the document where the relationship of this document to the other RFCs
 is discussed. If this information is not in the document, explain why
 the WG considers it unnecessary.
 
-  No. Although this draft in a sense extends DHCPv4 Bulk Leasequery
-  (RFC6926), it is still possible to implement RFC6926 without ever
-  looking at this draft, hence no need for "updates RFC6926".
+  Yes. It updates DHCPv4 Bulk Leasequery (RFC6926). That information
+  is clearly stated on the front page in the header and further
+  repeated in Abstract and later explained in the Introduction.
 
 (17) Describe the Document Shepherd's review of the IANA considerations
 section, especially with regard to its consistency with the body of the
@@ -188,8 +199,9 @@ allocations procedures for future registrations are defined, and a
 reasonable name for the new registry has been suggested (see RFC 5226).
 
   The IANA considerations section is written correctly. It requests
-  IANA to assign 2 DHCPv4 option codes and 3 new status codes. All
-  registers and values are clearly identified.
+  IANA to assign 3 new DHCPv4 message types and 4 new status codes. All
+  registers and values are clearly identified, including direct links
+  to said registries.
 
 (18) List any new IANA registries that require Expert Review for future
 allocations. Provide any public guidance that the IESG would find useful
@@ -201,4 +213,4 @@ in selecting the IANA Experts for these new registries.
 Shepherd to validate sections of the document written in a formal
 language, such as XML code, BNF rules, MIB definitions, etc.
 
-  No such reviews were performed.
+  No such reviews were necessary.
