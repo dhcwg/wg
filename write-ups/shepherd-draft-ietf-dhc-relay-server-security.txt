@@ -1,0 +1,214 @@
+Write-up for draft-ietf-dhc-relay-server-security-02
+
+(1) What type of RFC is being requested (BCP, Proposed Standard,
+Internet Standard, Informational, Experimental, or Historic)?  Why
+is this the proper type of RFC?  Is this type of RFC indicated in the
+title page header?
+
+  Standards track. This I-D clarifies how DHCPv4 and DHCPv6 traffic between
+  servers and relays should be protected and uses normative language.
+  Therefore this is the right type. The intended type is clearly
+  indicated in the page header.
+
+(2) The IESG approval announcement includes a Document Announcement
+Write-Up. Please provide such a Document Announcement Write-Up. Recent
+examples can be found in the "Action" announcements for approved
+documents. The approval announcement contains the following sections:
+
+Technical Summary
+
+   DHCPv4 has no guidance for how to secure messages exchanged between
+   servers and relay agents. The DHCPv6 states that IPsec should be
+   used to secure messages exchanged between servers and relay agents,
+   but does not require encryption.  And, with recent concerns about
+   pervasive monitoring and other attacks, it is appropriate to
+   require securing relay to relay and relay to server communication
+   for DHCPv6 and relay to server communication for DHCPv4. This
+   draft codifies how to use IPsec to secure DHCP communication.
+
+Working Group Summary
+
+  This draft was created as a result of a concern raised by during
+  IESG review of draft-ietf-dhc-access-network-identifier (https://
+  mailarchive.ietf.org/arch/msg/dhcwg/17b2yzdJOS1hif95kRIQXidudI8).
+  The issue was the options codified in that I-D could reveal user
+  identifying information when a client communicates with a server
+  via relay(s). This was a generic DHCP issue, so the decision was made
+  to write an separate draft. Using IPsec for that purpose seems to
+  be an obvious choice and that is what the draft proposes.
+
+  This draft was first presented in Buenos Aires (April 2016) and
+  later in Berlin (July 2016) and got unanimous support in the room on
+  both presentations. It was adopted in Sep. 2016. The draft is very
+  short (a bit over 2 pages of actual content) and changed very little
+  between its first individual revision and the WG -02 rev that passed
+  WGLC. That is understandable, as it codifies the obvious solution
+  and was written by two experienced engineers (one of them being DHC
+  co-chair). This is also the reason why this draft received fewer
+  comments than average. In total, there were 37 messages related to
+  this draft posted to DHC list and a handful more circulated off
+  the list.
+
+Document Quality
+
+  This document is of high quality. The reviews it received my seem
+  like not too thorough, but that's because of the draft's shortness
+  and a high quality of its initial version. The authors are two
+  experienced DHCP engineers working for Cisco. I have personally
+  reviewed this draft and had some minor comments that were addressed.
+
+Personnel
+
+  Who is the Document Shepherd? Who is the Responsible Area
+  Director?
+
+  Tomek Mrugalski is the shepherd. Suresh Krishnan is the responsible AD.
+
+(3) Briefly describe the review of this document that was performed by
+the Document Shepherd.  If this version of the document is not ready
+for publication, please explain why the document is being forwarded to
+the IESG.
+
+  I briefly reviewed the document before its adoption and it seemed ok.
+  I thoroughly reviewed this document second time during WGLC (-01):
+  https://mailarchive.ietf.org/arch/msg/dhcwg/s7ipaeaePK1ht3OSk0hxx683V9A
+  The minor issues I pointed out were addressed properly.
+  This document is ready in my opinion and should be published.
+
+(4) Does the document Shepherd have any concerns about the depth or
+breadth of the reviews that have been performed?
+
+  No, at least not from the DHCP perspective. An extra review from
+  security experts would be welcome. Ops-dir feedback would be
+  probably be useful, too.
+
+(5) Do portions of the document need review from a particular or from
+broader perspective, e.g., security, operational complexity, AAA, DNS,
+DHCP, XML, or internationalization? If so, describe the review that
+took place.
+
+  This I-D is DHCP-centric, so DHC is the proper WG for this work. It
+  would be useful to have sec-dir review of it.  This draft was
+  reviewed by Stephen Farrell on Oct. 14, 2016, but sadly his (brief)
+  comments were sent off the list. I was part of that
+  discussion. Stephen's proposal was applied in -01.
+
+(6) Describe any specific concerns or issues that the Document Shepherd
+has with this document that the Responsible Area Director and/or the
+IESG should be aware of? For example, perhaps he or she is uncomfortable
+with certain parts of the document, or has concerns whether there really
+is a need for it. In any event, if the WG has discussed those issues and
+has indicated that it still wishes to advance the document, detail those
+concerns here.
+
+  I have no such concerns, except asking for a sec-dir review and
+  optionally ops-dir review.
+
+(7) Has each author confirmed that any and all appropriate IPR
+disclosures required for full conformance with the provisions of BCP 78
+and BCP 79 have already been filed. If not, explain why.
+
+  Yes, both authors confirmed in writing. There are no IPRs, existing or
+  outstanding.
+
+(8) Has an IPR disclosure been filed that references this document?
+If so, summarize any WG discussion and conclusion regarding the IPR
+disclosures.
+
+  No.
+
+(9) How solid is the WG consensus behind this document? Does it
+represent the strong concurrence of a few individuals, with others
+being silent, or does the WG as a whole understand and agree with it?
+
+  The consensus is pretty solid. There was an unanimous nod of
+  approval in the room when it was presented. Usage of IPsec with
+  encryption is the obvious choice and some deployments are already
+  doing it. Sadly, not a lot of people thought it is important enough
+  to confirm their approval on the ML, probably because RFC3315
+  indicated that already and that's what people typically do when they
+  need to secure their relay-server communication.
+
+(10) Has anyone threatened an appeal or otherwise indicated extreme
+discontent? If so, please summarise the areas of conflict in separate
+email messages to the Responsible Area Director. (It should be in a
+separate email because this questionnaire is publicly available.)
+
+  No.
+
+(11) Identify any ID nits the Document Shepherd has found in this
+document. (See http://www.ietf.org/tools/idnits/ and the Internet-Drafts
+Checklist). Boilerplate checks are not enough; this check needs to be
+thorough.
+
+  There are 3 idnit comments and all of them are not a problem. First,
+  the draft uses pre-RFC5378 disclaimer, because it contains text from
+  RFC3315 (which we know some of the authors are not reachable).
+
+  Second is the publication year not matching current. Yes, it was
+  published in 2016 and that stated correctly.
+
+  The third nit is for outdated reference (sedhcpv6-18, now being
+  -20). This will be fixed by RFC Editor. On a related note, sedhcpv6
+  authors are eager to update their draft as soon as any comments
+  arrive (11 revisions in the last 13 months), so trying to keep up
+  would be a waste of time.
+
+(12) Describe how the document meets any required formal review
+criteria, such as the MIB Doctor, media type, and URI type reviews.
+
+  No such review is required.
+
+(13) Have all references within this document been identified as
+either normative or informative?
+
+  Yes.
+
+(14) Are there normative references to documents that are not ready for
+advancement or are otherwise in an unclear state? If such normative
+references exist, what is the plan for their completion?
+
+  No. All normative references are to published RFCs only.
+
+(15) Are there downward normative references references (see RFC 3967)?
+If so, list these downward references to support the Area Director in
+the Last Call procedure.
+
+  No. There are no such references.
+
+(16) Will publication of this document change the status of any
+existing RFCs? Are those RFCs listed on the title page header, listed
+in the abstract, and discussed in the introduction? If the RFCs are not
+listed in the Abstract and Introduction, explain why, and point to the
+part of the document where the relationship of this document to the
+other RFCs is discussed. If this information is not in the document,
+explain why the WG considers it unnecessary.
+
+  No. Even though this I-D introduces changes to RFC3315, the WG doesn't
+  want to enforce IPsec encryption on every DHCPv6 server. Therefore
+  it does not update RFC3315.
+
+(17) Describe the Document Shepherd's review of the IANA considerations
+section, especially with regard to its consistency with the body of the
+document. Confirm that all protocol extensions that the document makes
+are associated with the appropriate reservations in IANA registries.
+Confirm that any referenced IANA registries have been clearly
+identified. Confirm that newly created IANA registries include a
+detailed specification of the initial contents for the registry, that
+allocations procedures for future registrations are defined, and a
+reasonable name for the new registry has been suggested (see RFC 5226).
+
+  This document does not require any IANA actions. That is clearly
+  stated in the IANA considerations section.
+
+(18) List any new IANA registries that require Expert Review for future
+allocations. Provide any public guidance that the IESG would find
+useful in selecting the IANA Experts for these new registries.
+
+  There are no such registries defined.
+
+(19) Describe reviews and automated checks performed by the Document
+Shepherd to validate sections of the document written in a formal
+language, such as XML code, BNF rules, MIB definitions, etc.
+
+  There are no such sections, so automated checks are not necessary.
