@@ -23,31 +23,31 @@ Technical Summary
    but does not require encryption.  And, with recent concerns about
    pervasive monitoring and other attacks, it is appropriate to
    require securing relay to relay and relay to server communication
-   for DHCPv6 and relay to server communication for DHCPv4. This
-   draft codifies how to use IPsec to secure DHCP communication.
+   for DHCPv4 and DHCPv6. This draft codifies how to use IPsec with
+   encryption to secure that communication.
 
 Working Group Summary
 
   This draft was created as a result of a concern raised by during
   IESG review of draft-ietf-dhc-access-network-identifier (https://
   mailarchive.ietf.org/arch/msg/dhcwg/17b2yzdJOS1hif95kRIQXidudI8).
-  The issue was the options codified in that I-D could reveal user
-  identifying information when a client communicates with a server
-  via relay(s). This was a generic DHCP issue, so the decision was made
-  to write an separate draft. Using IPsec for that purpose seems to
-  be an obvious choice and that is what the draft proposes.
+  The issue was the DHCP options could reveal user identifying
+  information when a client communicates with a server via
+  relay(s). This was a generic DHCP issue, so the decision was made to
+  write a separate draft. Using IPsec for that purpose seems to be an
+  obvious choice and that is what the draft proposes.
 
   This draft was first presented in Buenos Aires (April 2016) and
   later in Berlin (July 2016) and got unanimous support in the room on
-  both presentations. It was adopted in Sep. 2016. The draft is very
-  short (a bit over 2 pages of actual content) and changed very little
-  between its first individual revision and the WG -02 rev that passed
+  both occasions. It was adopted in Sep. 2016. The draft is very short
+  (a bit over 2 pages of actual content) and changed very little
+  between its first individual revision and the rev that passed
   WGLC. That is understandable, as it codifies the obvious solution
-  and was written by two experienced engineers (one of them being DHC
-  co-chair). This is also the reason why this draft received fewer
-  comments than average. In total, there were 37 messages related to
-  this draft posted to DHC list and a handful more circulated off
-  the list.
+  implied by RFC3315 and was written by two experienced engineers (one
+  of them being DHC co-chair). This is also the reason why this draft
+  received fewer comments than average. In total, there were 37
+  messages related to this draft posted to DHC list and a handful more
+  circulated off the list.
 
 Document Quality
 
@@ -55,7 +55,8 @@ Document Quality
   like not too thorough, but that's because of the draft's shortness
   and a high quality of its initial version. The authors are two
   experienced DHCP engineers working for Cisco. I have personally
-  reviewed this draft and had some minor comments that were addressed.
+  reviewed -01 rev of this draft had some minor comments. They were
+  addressed in -02.
 
 Personnel
 
@@ -69,11 +70,11 @@ the Document Shepherd.  If this version of the document is not ready
 for publication, please explain why the document is being forwarded to
 the IESG.
 
-  I briefly reviewed the document before its adoption and it seemed ok.
-  I thoroughly reviewed this document second time during WGLC (-01):
+  I reviewed the document before its adoption.  I thoroughly reviewed
+  this document second time during WGLC (-01):
   https://mailarchive.ietf.org/arch/msg/dhcwg/s7ipaeaePK1ht3OSk0hxx683V9A
-  The minor issues I pointed out were addressed properly.
-  This document is ready in my opinion and should be published.
+  The minor issues I pointed out were addressed properly. This
+  document is ready for publication in my opinion.
 
 (4) Does the document Shepherd have any concerns about the depth or
 breadth of the reviews that have been performed?
@@ -90,8 +91,9 @@ took place.
   This I-D is DHCP-centric, so DHC is the proper WG for this work. It
   would be useful to have sec-dir review of it.  This draft was
   reviewed by Stephen Farrell on Oct. 14, 2016, but sadly his (brief)
-  comments were sent off the list. I was part of that
-  discussion. Stephen's proposal was applied in -01.
+  comments were sent off the list, so the review is not well
+  documented. I was part of that discussion. I confirmed that
+  Stephen's comment was addressed in -01.
 
 (6) Describe any specific concerns or issues that the Document Shepherd
 has with this document that the Responsible Area Director and/or the
@@ -125,7 +127,7 @@ being silent, or does the WG as a whole understand and agree with it?
   approval in the room when it was presented. Usage of IPsec with
   encryption is the obvious choice and some deployments are already
   doing it. Sadly, not a lot of people thought it is important enough
-  to confirm their approval on the ML, probably because RFC3315
+  to confirm their approval on the ML. That's probably because RFC3315
   indicated that already and that's what people typically do when they
   need to secure their relay-server communication.
 
@@ -146,13 +148,13 @@ thorough.
   RFC3315 (which we know some of the authors are not reachable).
 
   Second is the publication year not matching current. Yes, it was
-  published in 2016 and that stated correctly.
+  published in 2016 and that is stated correctly.
 
-  The third nit is for outdated reference (sedhcpv6-18, now being
-  -20). This will be fixed by RFC Editor. On a related note, sedhcpv6
-  authors are eager to update their draft as soon as any comments
-  arrive (11 revisions in the last 13 months), so trying to keep up
-  would be a waste of time.
+  The third nit is for outdated reference (sedhcpv6-18, with -20 being
+  available). This will be fixed by RFC Editor. Sedhcpv6 authors are
+  eager to update their draft as soon as any comments arrive (11
+  revisions in the last 13 months), so trying to keep up would be a
+  waste of time.
 
 (12) Describe how the document meets any required formal review
 criteria, such as the MIB Doctor, media type, and URI type reviews.
